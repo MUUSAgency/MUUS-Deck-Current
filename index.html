@@ -1,1218 +1,660 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MUUS × Gorilla Mind — Capabilities Deck</title>
-<meta name="description" content="MUUS Media — performance creative built for Gorilla Mind. Brand films, paid social, creator content, retail activation.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUUS × Gorilla Mind / Muse Energy — Full Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-/* ====== MUUS brand system, pitched for the Gorilla Mind meeting ====== */
-:root{
-  --paper:#F4F2EC;
-  --paper-2:#EDEAE2;
-  --ink:#0A0A0A;
-  --ink-2:#1A1A1A;
-  --mute:#6B6B6B;
-  --acid:#9FE870;
-  --acid-deep:#7BC44A;
-  --line:rgba(244,242,236,.10);
-  --line-light:rgba(10,10,10,.10);
-  --fg:var(--paper);
-  --bg:var(--ink);
-  --ez:cubic-bezier(.22,1,.36,1);
+:root {
+  --ink: #0D0D0D;
+  --cream: #F5F0E8;
+  --green: #9FE870;
+  --green-d: #6BBF45;
+  --mid: #EDE8DE;
+  --warm: #B8B0A4;
+  --white: #FFFFFF;
+  --grid: #D8D0C4;
+  --slide-gap: 2px;
 }
-[data-theme="light"]{
-  --fg:var(--ink);
-  --bg:var(--paper);
-  --line:rgba(10,10,10,.10);
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-snap-type:y mandatory; }
+body { background:var(--ink); font-family:'DM Sans',sans-serif; color:var(--cream); overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 48px;
+  background:rgba(13,13,13,0.95); backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(159,232,112,0.12);
 }
-*::selection{background:var(--acid);color:var(--ink)}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .6s var(--ez),color .6s var(--ez);cursor:none}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;border:none;background:none;cursor:none}
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:4px; }
+.nav-logo span { color:var(--green); }
+.nav-center { font-family:'Space Mono',monospace; font-size:10px; color:var(--warm); letter-spacing:2px; }
+.nav-dots { display:flex; gap:6px; align-items:center; }
+.dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.2); cursor:pointer; transition:all 0.3s; }
+.dot.on { background:var(--green); transform:scale(1.3); }
+.dot:hover { background:var(--green); opacity:0.7; }
 
-/* Cursor */
-.cdot,.cring{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;mix-blend-mode:difference;transition:transform .15s var(--ez),width .25s var(--ez),height .25s var(--ez),background .25s var(--ez)}
-.cdot{width:6px;height:6px;background:var(--paper);transform:translate(-50%,-50%)}
-.cring{width:36px;height:36px;border:1px solid var(--paper);transform:translate(-50%,-50%)}
-.cring.hover{width:64px;height:64px;background:rgba(159,232,112,.14);border-color:var(--acid)}
-@media(max-width:900px){body{cursor:auto}.cdot,.cring{display:none}}
-
-/* Topbar */
-nav.topbar{
-  position:fixed;top:0;left:0;right:0;z-index:800;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 32px;
-  background:rgba(10,10,10,.65);
-  backdrop-filter:blur(16px) saturate(140%);
-  border-bottom:1px solid var(--line);
-  transition:background .6s var(--ez);
+/* SECTION DIVIDERS */
+.section-divider {
+  background:var(--green);
+  padding:12px 80px;
+  display:flex; align-items:center; gap:16px;
 }
-[data-theme="light"] nav.topbar{background:rgba(244,242,236,.78)}
-.lockup{display:flex;align-items:center;gap:14px;color:var(--fg)}
-.lockup svg{width:60px;height:48px}
-.lockup .x{font-family:'Instrument Serif';font-style:italic;font-size:18px;color:var(--mute);letter-spacing:.02em}
-.lockup .partner{font-family:'Archivo Black';font-size:14px;letter-spacing:-.01em;text-transform:uppercase;line-height:1}
-.lockup .partner small{display:block;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.22em;color:var(--mute);font-weight:400;margin-top:3px;text-transform:uppercase}
-.tb-meta{display:flex;align-items:center;gap:24px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.tb-meta b{color:var(--fg);font-family:'Archivo Black';font-weight:400}
-.tb-controls{display:flex;align-items:center;gap:14px}
-.tbtn{padding:9px 14px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--line);color:var(--fg);transition:all .25s;font-family:'JetBrains Mono'}
-.tbtn:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.tbtn.acid{background:var(--acid);color:var(--ink);border-color:var(--acid)}
-.tbtn.acid:hover{background:transparent;color:var(--acid)}
-.theme-toggle{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--line);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg);transition:all .25s}
-.theme-toggle:hover{border-color:var(--fg)}
-.theme-toggle .orb{width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--paper),var(--ink) 60%,var(--ink) 100%);transition:background .4s var(--ez)}
-[data-theme="light"] .theme-toggle .orb{background:radial-gradient(circle at 65% 30%,var(--ink),var(--paper) 60%,var(--paper) 100%)}
+.divider-label { font-family:'Space Mono',monospace; font-size:11px; color:var(--ink); letter-spacing:4px; font-weight:700; }
 
-/* Slide rail */
-.rail{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:700;display:flex;flex-direction:column;gap:14px;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.18em}
-.rail .dot{display:flex;align-items:center;gap:10px;color:var(--mute);transition:color .25s;cursor:none;text-decoration:none;padding:4px 0}
-.rail .dot::before{content:"";display:block;width:18px;height:1px;background:currentColor;transition:width .3s var(--ez)}
-.rail .dot.active{color:var(--acid)}
-.rail .dot.active::before{width:32px}
-.rail .dot:hover{color:var(--fg)}
-
-/* Slides */
-section.slide{
+/* SLIDE BASE */
+.slide {
   min-height:100vh;
-  padding:140px 80px 100px;
-  display:flex;flex-direction:column;justify-content:center;
-  border-bottom:1px solid var(--line);
-  position:relative;
-  overflow:hidden;
+  scroll-snap-align:start;
+  padding:100px 80px 64px;
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
 }
-.slide-num{
-  position:absolute;top:120px;left:80px;
-  font-family:'JetBrains Mono';font-size:10px;letter-spacing:.28em;
-  color:var(--mute);text-transform:uppercase;
+.slide > * { opacity:0; transform:translateY(18px); animation:fadeUp 0.65s forwards; }
+.slide > *:nth-child(1){animation-delay:.08s}
+.slide > *:nth-child(2){animation-delay:.18s}
+.slide > *:nth-child(3){animation-delay:.28s}
+.slide > *:nth-child(4){animation-delay:.38s}
+.slide > *:nth-child(5){animation-delay:.48s}
+.slide > *:nth-child(6){animation-delay:.58s}
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+
+/* COMMON TYPO */
+.stag { font-family:'Space Mono',monospace; font-size:11px; letter-spacing:3px; color:var(--green); text-transform:uppercase; margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+.stag::after { content:''; flex:1; max-width:48px; height:1px; background:var(--green); opacity:.5; }
+.stag-dark { color:var(--green-d); }
+.stag-dark::after { background:var(--green-d); }
+.hed { font-family:'Bebas Neue',sans-serif; font-size:clamp(44px,6vw,88px); line-height:.92; letter-spacing:2px; color:var(--cream); margin-bottom:20px; }
+.hed em { color:var(--green); font-style:normal; }
+.hed-dark { color:var(--ink); }
+.hed-dark em { color:var(--green-d); }
+.bod { font-size:15px; line-height:1.75; color:rgba(245,240,232,.72); font-weight:300; max-width:520px; }
+.bod-dark { color:rgba(13,13,13,.65); }
+
+/* GRID LAYOUTS */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+.three-col { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--slide-gap); }
+.four-col { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--slide-gap); }
+
+/* STAT BLOCKS */
+.stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--slide-gap); margin-top:40px; }
+.stat { background:var(--ink); padding:28px 24px; }
+.stat-n { font-family:'Bebas Neue',sans-serif; font-size:48px; color:var(--green); line-height:1; letter-spacing:2px; }
+.stat-l { font-size:12px; color:var(--warm); margin-top:4px; letter-spacing:1px; }
+.stat-dark { background:var(--mid); }
+.stat-dark .stat-n { color:var(--green-d); }
+.stat-dark .stat-l { color:#777; }
+
+/* CAPABILITY CARDS */
+.cap-card { border:1px solid rgba(159,232,112,.14); padding:28px; transition:all .3s; }
+.cap-card:hover { border-color:var(--green); background:rgba(159,232,112,.03); }
+.cap-num { font-family:'Space Mono',monospace; font-size:10px; color:var(--green); letter-spacing:3px; margin-bottom:12px; }
+.cap-title { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--cream); letter-spacing:2px; margin-bottom:8px; }
+.cap-desc { font-size:13px; color:rgba(245,240,232,.55); line-height:1.6; }
+.cap-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.tag { font-family:'Space Mono',monospace; font-size:9px; padding:3px 8px; border:1px solid rgba(159,232,112,.25); color:var(--green); letter-spacing:1px; }
+
+/* WORK TILES */
+.work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--slide-gap); margin-top:32px; }
+.work-tile { position:relative; background:rgba(255,255,255,.04); padding:32px 28px; border-bottom:2px solid transparent; transition:border-color .3s; }
+.work-tile:hover { border-color:var(--green); }
+.work-client { font-family:'Space Mono',monospace; font-size:10px; color:var(--green); letter-spacing:3px; margin-bottom:8px; }
+.work-title { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--cream); letter-spacing:2px; margin-bottom:6px; }
+.work-desc { font-size:12px; color:rgba(245,240,232,.5); line-height:1.5; }
+
+/* CLIENT GRID */
+.client-list { display:flex; flex-wrap:wrap; gap:var(--slide-gap); margin-top:32px; }
+.client-chip { background:rgba(255,255,255,.04); padding:14px 20px; font-family:'Space Mono',monospace; font-size:11px; color:var(--warm); letter-spacing:2px; transition:all .3s; cursor:default; }
+.client-chip:hover { background:var(--green); color:var(--ink); }
+
+/* OPTION CARDS */
+.opt-card { border:1px solid rgba(159,232,112,.18); padding:28px 32px; position:relative; overflow:hidden; transition:border-color .3s; }
+.opt-card:hover { border-color:var(--green); }
+.opt-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--green); }
+.opt-stag { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:3px; color:var(--green); margin-bottom:6px; }
+.opt-title { font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--cream); letter-spacing:2px; margin-bottom:6px; }
+.opt-price { font-family:'Space Mono',monospace; font-size:14px; color:var(--green); margin-bottom:10px; }
+.opt-desc { font-size:13px; color:rgba(245,240,232,.55); line-height:1.6; }
+.rec-badge { position:absolute; top:12px; right:14px; background:var(--green); color:var(--ink); font-family:'Space Mono',monospace; font-size:9px; letter-spacing:2px; padding:4px 8px; font-weight:700; }
+
+/* BUDGET TABLE */
+.bud-col-head { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:3px; color:var(--green-d); margin-bottom:14px; text-transform:uppercase; }
+.bud-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid rgba(13,13,13,.1); font-size:13px; }
+.bud-item { color:var(--ink); }
+.bud-cost { font-family:'Space Mono',monospace; font-size:11px; color:#555; }
+.bud-total { display:flex; justify-content:space-between; align-items:center; padding:14px 20px; background:var(--ink); margin-top:6px; }
+.bud-total-l { font-family:'Space Mono',monospace; font-size:11px; letter-spacing:2px; color:var(--cream); }
+.bud-total-n { font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--green); letter-spacing:2px; }
+
+/* PHASE STEPS */
+.phases { display:flex; flex-direction:column; gap:0; }
+.phase { display:grid; grid-template-columns:70px 1fr; }
+.phase-nc { display:flex; flex-direction:column; align-items:center; padding:16px 0; }
+.phase-n { font-family:'Bebas Neue',sans-serif; font-size:34px; color:var(--green); line-height:1; }
+.phase-vl { flex:1; width:1px; background:rgba(159,232,112,.2); margin-top:6px; }
+.phase:last-child .phase-vl { display:none; }
+.phase-c { padding:16px 0 16px 22px; border-left:1px solid rgba(159,232,112,.1); }
+.phase-stag { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--green); margin-bottom:4px; }
+.phase-t { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--cream); letter-spacing:2px; margin-bottom:4px; }
+.phase-d { font-size:12px; color:rgba(245,240,232,.55); line-height:1.6; }
+
+/* CREATOR MONTHS */
+.creator-m { background:var(--ink); padding:28px 26px; position:relative; overflow:hidden; }
+.creator-m::before { content:attr(data-m); position:absolute; bottom:-24px; right:-8px; font-family:'Bebas Neue',sans-serif; font-size:90px; color:rgba(159,232,112,.05); letter-spacing:4px; line-height:1; pointer-events:none; }
+.cm-stag { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--green); margin-bottom:10px; }
+.cm-title { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--cream); letter-spacing:2px; margin-bottom:14px; }
+.cm-item { font-size:12px; color:rgba(245,240,232,.6); display:flex; gap:10px; line-height:1.55; margin-bottom:7px; }
+.cm-item::before { content:'—'; color:var(--green); flex-shrink:0; font-family:'Space Mono',monospace; font-size:11px; }
+
+/* PACKAGE CARDS */
+.pkg { border:1px solid rgba(159,232,112,.15); padding:24px 28px; transition:all .3s; }
+.pkg:hover { border-color:var(--green); background:rgba(159,232,112,.03); }
+.pkg-name { font-family:'Bebas Neue',sans-serif; font-size:24px; color:var(--cream); letter-spacing:2px; margin-bottom:4px; }
+.pkg-price { font-family:'Space Mono',monospace; font-size:13px; color:var(--green); margin-bottom:8px; }
+.pkg-desc { font-size:12px; color:rgba(245,240,232,.5); line-height:1.6; }
+
+/* NEXT STEPS */
+.next-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--slide-gap); margin-top:28px; }
+.next-card { background:var(--ink); padding:30px; }
+.next-n { font-family:'Bebas Neue',sans-serif; font-size:44px; color:var(--green); line-height:1; letter-spacing:2px; }
+.next-t { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--cream); letter-spacing:2px; margin:8px 0; }
+.next-d { font-size:13px; color:rgba(245,240,232,.55); line-height:1.6; }
+.next-own { font-family:'Space Mono',monospace; font-size:9px; color:var(--green); letter-spacing:2px; margin-top:14px; padding-top:12px; border-top:1px solid rgba(159,232,112,.18); }
+
+/* TITLE SLIDE */
+.slide-title { padding:0; display:grid; grid-template-columns:1fr 1fr; min-height:100vh; }
+.tl { background:var(--cream); display:flex; flex-direction:column; justify-content:space-between; padding:80px 60px; position:relative; overflow:hidden; }
+.tl::after { content:''; position:absolute; bottom:-80px; right:-80px; width:320px; height:320px; border-radius:50%; background:var(--green); opacity:.12; }
+.tl > * { opacity:0; transform:translateY(16px); animation:fadeUp .6s forwards; }
+.tl > *:nth-child(1){animation-delay:.15s}
+.tl > *:nth-child(2){animation-delay:.3s}
+.tl > *:nth-child(3){animation-delay:.45s}
+.tl > *:nth-child(4){animation-delay:.6s}
+.tl-tag { font-family:'Space Mono',monospace; font-size:10px; color:#888; letter-spacing:3px; }
+.tl-hed { font-family:'Bebas Neue',sans-serif; font-size:clamp(60px,7vw,104px); line-height:.88; color:var(--ink); letter-spacing:2px; }
+.tl-hed em { color:var(--green-d); font-style:normal; display:block; }
+.tl-sub { font-size:13px; color:#555; line-height:1.7; max-width:340px; }
+.tr { background:var(--ink); display:flex; flex-direction:column; justify-content:space-between; padding:80px 60px; border-left:1px solid rgba(159,232,112,.15); }
+.tr > * { opacity:0; transform:translateX(16px); animation:fadeR .6s forwards; }
+.tr > *:nth-child(1){animation-delay:.35s}
+.tr > *:nth-child(2){animation-delay:.5s}
+.tr > *:nth-child(3){animation-delay:.65s}
+@keyframes fadeR { to { opacity:1; transform:translateX(0); } }
+.tr-top { font-family:'Space Mono',monospace; font-size:10px; color:var(--green); letter-spacing:3px; }
+.agenda { display:flex; flex-direction:column; }
+.ag-item { display:flex; align-items:center; gap:16px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.06); cursor:pointer; text-decoration:none; transition:padding-left .2s; }
+.ag-item:hover { padding-left:10px; }
+.ag-item:hover .ag-n { color:var(--green); }
+.ag-n { font-family:'Space Mono',monospace; font-size:11px; color:var(--warm); min-width:28px; transition:color .2s; }
+.ag-t { font-size:15px; font-weight:500; color:var(--cream); flex:1; }
+.ag-section { font-family:'Space Mono',monospace; font-size:9px; color:rgba(159,232,112,.5); letter-spacing:2px; }
+.ag-arr { font-size:12px; color:var(--warm); }
+.tr-foot { font-family:'Space Mono',monospace; font-size:9px; color:var(--warm); letter-spacing:2px; }
+
+/* CLOSING */
+.slide-close { background:var(--ink); align-items:center; text-align:center; gap:28px; }
+.close-hed { font-family:'Bebas Neue',sans-serif; font-size:clamp(60px,9vw,130px); line-height:.88; letter-spacing:4px; color:var(--cream); }
+.close-hed em { color:var(--green); font-style:normal; display:block; }
+.close-line { width:72px; height:2px; background:var(--green); }
+.close-contact { font-family:'Space Mono',monospace; font-size:12px; color:var(--warm); letter-spacing:2px; }
+.close-contact a { color:var(--green); text-decoration:none; }
+
+/* BG VARIANTS */
+.bg-cream { background:var(--cream); color:var(--ink); }
+.bg-mid { background:var(--mid); color:var(--ink); }
+.bg-ink { background:var(--ink); }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background:var(--ink); }
+::-webkit-scrollbar-thumb { background:var(--green); border-radius:2px; }
+
+/* PROPOSAL DIVIDER SLIDE */
+.slide-divider {
+  min-height:100vh;
+  scroll-snap-align:start;
+  background:var(--green);
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:flex-start;
+  padding:100px 80px;
+  position:relative; overflow:hidden;
 }
-.slide-num b{color:var(--acid);font-family:'Archivo Black';font-weight:400}
-.slide-eyebrow{
-  font-family:'JetBrains Mono';font-size:11px;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--acid);
-  display:flex;align-items:center;gap:14px;
-  margin-bottom:36px;
+.slide-divider::before {
+  content:'PROPOSAL';
+  position:absolute; right:-40px; top:50%;
+  transform:translateY(-50%) rotate(90deg);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:180px; color:rgba(13,13,13,.08);
+  letter-spacing:8px; white-space:nowrap;
 }
-.slide-eyebrow::before{content:"";display:block;width:36px;height:1px;background:var(--acid)}
+.div-pre { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:4px; color:rgba(13,13,13,.5); margin-bottom:24px; }
+.div-hed { font-family:'Bebas Neue',sans-serif; font-size:clamp(56px,8vw,110px); line-height:.88; color:var(--ink); letter-spacing:2px; }
+.div-sub { font-size:16px; color:rgba(13,13,13,.65); margin-top:24px; max-width:480px; line-height:1.7; }
 
-h1.title{font-family:'Archivo Black';font-size:clamp(72px,9.5vw,180px);line-height:.85;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:24px}
-h1.title em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-h2.heading{font-family:'Archivo Black';font-size:clamp(48px,5.8vw,108px);line-height:.9;letter-spacing:-.035em;text-transform:uppercase;margin-bottom:32px;max-width:1300px}
-h2.heading em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.lede{font-family:'JetBrains Mono';font-size:18px;line-height:1.55;color:var(--fg);max-width:780px;margin-bottom:48px;font-weight:300}
-.lede em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.lede strong{color:var(--fg);font-weight:500}
-
-/* ===== SLIDE 01 — TITLE ===== */
-#title{
-  background:radial-gradient(ellipse at 30% 20%,rgba(159,232,112,.08),transparent 60%),var(--bg);
-  align-items:flex-start;
-}
-.title-stack{display:flex;flex-direction:column;gap:16px;width:100%}
-.title-meta{display:flex;justify-content:space-between;align-items:flex-end;margin-top:64px;padding-top:32px;border-top:1px solid var(--line)}
-.title-meta-block{display:flex;flex-direction:column;gap:6px}
-.title-meta-block .lbl{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.title-meta-block .val{font-family:'Archivo Black';font-size:16px;letter-spacing:-.012em;text-transform:uppercase}
-.title-meta-block .val em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.title-marquee{margin-top:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;font-family:'Archivo Black';font-size:24px;letter-spacing:-.01em;text-transform:uppercase;display:flex;align-items:center;gap:60px;white-space:nowrap;color:var(--mute)}
-.title-marquee em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.title-marquee .dot{width:6px;height:6px;border-radius:50%;background:var(--acid);flex-shrink:0}
-
-/* ===== SLIDE 02 — WHY MUUS FOR GORILLA MIND ===== */
-.fit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.fit-cell{background:var(--bg);padding:36px 28px;display:flex;flex-direction:column;gap:14px;min-height:240px}
-.fit-cell .num{font-family:'Archivo Black';font-size:32px;color:var(--acid);line-height:1}
-.fit-cell h3{font-family:'Archivo Black';font-size:22px;letter-spacing:-.012em;text-transform:uppercase;line-height:1}
-.fit-cell p{font-family:'JetBrains Mono';font-size:13px;line-height:1.55;color:var(--mute);margin-top:auto}
-.fit-cell p em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-
-/* ===== SLIDE 03 — CAPABILITIES ===== */
-.caps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.cap-cell{background:var(--bg);padding:36px 28px;display:flex;flex-direction:column;gap:18px;min-height:300px}
-.cap-cell .cap-num{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.22em;color:var(--mute);text-transform:uppercase}
-.cap-cell h3{font-family:'Archivo Black';font-size:24px;letter-spacing:-.012em;text-transform:uppercase;line-height:1}
-.cap-cell h3 em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.cap-cell p{font-family:'JetBrains Mono';font-size:13px;line-height:1.55;color:var(--mute)}
-.cap-cell .cap-tags{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px;padding-top:18px;border-top:1px dashed var(--line)}
-.cap-cell .cap-tags span{font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--line);color:var(--mute)}
-.cap-cell.flagship{background:linear-gradient(180deg,rgba(159,232,112,.08),transparent 100%);border-left:2px solid var(--acid)}
-.cap-cell.flagship .cap-num{color:var(--acid)}
-.cap-cell.flagship h3{color:var(--acid)}
-
-/* ===== SLIDE 04 — CONTENT FORMATS GRID ===== */
-.formats-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
-.format-cat{background:var(--ink-2);border:1px solid var(--line);padding:28px 28px 14px}
-[data-theme="light"] .format-cat{background:var(--paper-2)}
-.format-cat-head{display:flex;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:8px}
-.format-cat-num{font-family:'Archivo Black';font-size:14px;color:var(--acid);background:rgba(159,232,112,.10);padding:6px 10px;border:1px solid rgba(159,232,112,.3);line-height:1}
-.format-cat-head h3{font-family:'Archivo Black';font-size:22px;letter-spacing:-.012em;text-transform:uppercase;line-height:1;flex:1}
-.format-cat-tag{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.format-rows{display:flex;flex-direction:column}
-.format-row{display:grid;grid-template-columns:1.4fr 1fr 1.6fr;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line);align-items:start}
-.format-row:last-child{border-bottom:none}
-.format-row-name{font-family:'Archivo Black';font-size:13px;letter-spacing:-.005em;text-transform:uppercase;color:var(--fg);line-height:1.3}
-.format-row-spec{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.06em;color:var(--acid);line-height:1.4}
-.format-row-use{font-family:'JetBrains Mono';font-size:11px;color:var(--mute);line-height:1.45}
-
-/* ===== SLIDE 05 — VIDEO STYLES GRID ===== */
-.styles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
-.style-cell{background:var(--ink-2);border:1px solid var(--line);padding:24px 22px;display:flex;flex-direction:column;gap:14px;min-height:280px;transition:border-color .3s}
-[data-theme="light"] .style-cell{background:var(--paper-2)}
-.style-cell:hover{border-color:var(--acid)}
-.style-num{font-family:'Archivo Black';font-size:11px;color:var(--mute);letter-spacing:.05em}
-.style-cell h3{font-family:'Archivo Black';font-size:18px;letter-spacing:-.012em;text-transform:uppercase;line-height:1.05}
-.style-cell h3 em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.style-cell p{font-family:'JetBrains Mono';font-size:12px;line-height:1.55;color:var(--mute)}
-.style-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
-.style-tag{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--line);color:var(--mute)}
-.style-ref{padding-top:14px;border-top:1px dashed var(--line);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.05em;color:var(--mute);line-height:1.4}
-.style-ref em{font-family:'Instrument Serif';font-style:italic;color:var(--fg);font-weight:400;font-size:11px}
-
-/* ===== SLIDE 06 — PRODUCTION STACK GRID ===== */
-.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:16px}
-.stack-col{background:var(--ink-2);border:1px solid var(--line);padding:32px 28px}
-[data-theme="light"] .stack-col{background:var(--paper-2)}
-.stack-col-head{padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:18px;display:flex;flex-direction:column;gap:8px}
-.stack-col-num{font-family:'Archivo Black';font-size:14px;color:var(--acid);background:rgba(159,232,112,.10);padding:5px 10px;border:1px solid rgba(159,232,112,.3);line-height:1;align-self:flex-start}
-.stack-col-head h3{font-family:'Archivo Black';font-size:24px;letter-spacing:-.015em;text-transform:uppercase;line-height:1;margin-top:4px}
-.stack-col-sub{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
-.stack-list{list-style:none;display:flex;flex-direction:column}
-.stack-list li{padding:10px 0;border-bottom:1px dashed var(--line);display:flex;flex-direction:column;gap:3px}
-.stack-list li:last-child{border-bottom:none}
-.stack-list li span{font-family:'Archivo Black';font-size:12px;letter-spacing:-.005em;text-transform:uppercase;color:var(--fg);line-height:1.2}
-.stack-list li i{font-family:'JetBrains Mono';font-style:normal;font-size:10px;color:var(--mute);line-height:1.45;letter-spacing:.02em}
-
-.stack-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:32px}
-.stack-strip-cell{background:var(--bg);padding:20px 24px;display:flex;flex-direction:column;gap:6px}
-.strip-lbl{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.strip-val{font-family:'Archivo Black';font-size:13px;letter-spacing:-.005em;text-transform:uppercase;line-height:1.3;color:var(--fg)}
-
-/* ===== SLIDE 04 — NUMBERS ===== */
-.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-top:32px}
-.num-cell{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:24px}
-.num-cell .big{font-family:'Archivo Black';font-size:clamp(56px,5.5vw,108px);line-height:.85;letter-spacing:-.03em}
-.num-cell .big sup{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400;font-size:.4em;letter-spacing:0;vertical-align:super;margin-left:4px}
-.num-cell .lbl{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-
-/* ===== SLIDE 05 — WORK ===== */
-.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-.case-card{position:relative;aspect-ratio:4/5;background:var(--ink-2);overflow:hidden;border:1px solid var(--line)}
-.case-card video,.case-card img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.4) brightness(.9);transition:filter .55s var(--ez),transform .55s var(--ez)}
-.case-card:hover video,.case-card:hover img{filter:none;transform:scale(1.04)}
-.case-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:22px;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.85) 100%);pointer-events:none}
-.case-overlay .num{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.22em;color:rgba(244,242,236,.55);text-transform:uppercase}
-.case-overlay .num b{color:var(--acid);font-family:'Archivo Black';font-weight:400}
-.case-overlay .info{color:var(--paper)}
-.case-overlay .client{font-family:'Archivo Black';font-size:22px;letter-spacing:-.012em;text-transform:uppercase;line-height:1;margin-bottom:6px}
-.case-overlay .tag{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.22em;color:var(--acid);text-transform:uppercase;display:flex;align-items:center;gap:6px}
-.case-overlay .tag::before{content:"";width:5px;height:5px;background:var(--acid);border-radius:50%;box-shadow:0 0 6px var(--acid)}
-
-/* ===== SLIDE 06 — CLIENTS ===== */
-.client-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.client-cell{background:var(--bg);padding:28px 14px;display:flex;align-items:center;justify-content:center;min-height:100px;font-family:'Archivo Black';font-size:14px;letter-spacing:-.01em;text-transform:uppercase;color:var(--mute);transition:color .3s,background .3s}
-.client-cell:hover{color:var(--acid);background:var(--ink-2)}
-[data-theme="light"] .client-cell:hover{background:var(--paper-2)}
-
-/* ===== SLIDE 07 — CPG / SUPPLEMENT EXPERIENCE ===== */
-.cpg-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
-.cpg-stack{display:flex;flex-direction:column;gap:18px}
-.cpg-stack .item{padding:20px 24px;background:var(--ink-2);border-left:2px solid var(--acid);display:flex;justify-content:space-between;align-items:center;gap:24px}
-[data-theme="light"] .cpg-stack .item{background:var(--paper-2)}
-.cpg-stack .item .name{font-family:'Archivo Black';font-size:18px;letter-spacing:-.01em;text-transform:uppercase}
-.cpg-stack .item .name em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400;font-size:14px;display:block;text-transform:none;letter-spacing:0;margin-top:2px}
-.cpg-stack .item .vert{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.22em;color:var(--mute);text-transform:uppercase}
-.cpg-side{padding:36px 32px;background:var(--ink-2);border:1px solid var(--line)}
-[data-theme="light"] .cpg-side{background:var(--paper-2)}
-.cpg-side h3{font-family:'Archivo Black';font-size:24px;letter-spacing:-.012em;text-transform:uppercase;margin-bottom:18px;line-height:1}
-.cpg-side h3 em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.cpg-side ul{list-style:none;display:flex;flex-direction:column;gap:12px}
-.cpg-side ul li{font-family:'JetBrains Mono';font-size:13px;line-height:1.5;padding-left:20px;position:relative;color:var(--fg)}
-.cpg-side ul li::before{content:"→";position:absolute;left:0;top:0;color:var(--acid);font-weight:700}
-
-/* ===== SLIDE 08 — WHAT WE'D BUILD FOR YOU ===== */
-.proposal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.proposal-cell{background:var(--bg);padding:40px 32px;display:flex;flex-direction:column;gap:16px;min-height:220px}
-.proposal-cell .pnum{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.22em;color:var(--acid);text-transform:uppercase;display:flex;align-items:center;gap:10px}
-.proposal-cell .pnum::before{content:"";width:24px;height:1px;background:var(--acid)}
-.proposal-cell h3{font-family:'Archivo Black';font-size:26px;letter-spacing:-.015em;text-transform:uppercase;line-height:1.05}
-.proposal-cell h3 em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400}
-.proposal-cell p{font-family:'JetBrains Mono';font-size:13px;line-height:1.55;color:var(--mute)}
-.proposal-cell .deliverables{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:18px;border-top:1px dashed var(--line)}
-.proposal-cell .deliverables span{font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:4px 8px;background:rgba(159,232,112,.10);color:var(--acid);border:1px solid rgba(159,232,112,.3)}
-
-/* ===== SLIDE 09 — ENGAGEMENT MODELS ===== */
-.eng-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-.eng-cell{padding:36px 28px;background:var(--ink-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px;min-height:320px}
-[data-theme="light"] .eng-cell{background:var(--paper-2)}
-.eng-cell.featured{border:1.5px solid var(--acid);background:linear-gradient(180deg,rgba(159,232,112,.06),transparent 100%)}
-.eng-cell .eng-tag{display:inline-flex;align-self:flex-start;background:var(--acid);color:var(--ink);padding:4px 10px;font-family:'JetBrains Mono';font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
-.eng-cell .eng-tag-line{display:inline-flex;align-self:flex-start;font-family:'JetBrains Mono';font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);padding:4px 0;border-bottom:1px solid var(--line)}
-.eng-cell h3{font-family:'Archivo Black';font-size:28px;letter-spacing:-.015em;text-transform:uppercase;line-height:1;margin-top:4px}
-.eng-cell .pi{font-family:'JetBrains Mono';font-size:13px;line-height:1.55;color:var(--mute);padding-bottom:18px;border-bottom:1px dashed var(--line)}
-.eng-cell ul{list-style:none;display:flex;flex-direction:column;gap:10px;flex:1}
-.eng-cell .eng-foot{margin-top:8px;padding-top:14px;border-top:1px dashed var(--line);font-family:'JetBrains Mono';font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.eng-floor{margin-top:48px;display:flex;align-items:center;gap:24px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.eng-floor .floor-line{flex:1;height:1px;background:var(--line)}
-.eng-floor .floor-text em{font-family:'Instrument Serif';font-style:italic;color:var(--acid);font-weight:400;text-transform:none;letter-spacing:0;font-size:14px}
-.eng-cell ul li{font-family:'JetBrains Mono';font-size:12px;line-height:1.5;padding-left:18px;position:relative;color:var(--fg)}
-.eng-cell ul li::before{content:"✓";position:absolute;left:0;top:0;color:var(--acid);font-weight:700}
-
-/* ===== SLIDE 10 — CTA ===== */
-#cta{background:radial-gradient(ellipse at 50% 50%,rgba(159,232,112,.12),transparent 60%),var(--bg);text-align:center;align-items:center;justify-content:center}
-#cta .stack{display:flex;flex-direction:column;align-items:center;gap:32px;max-width:1100px;margin:0 auto}
-#cta h2{font-size:clamp(60px,8vw,140px);text-align:center}
-#cta .lede{text-align:center;margin:0 auto}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:24px}
-.cta-btn{padding:18px 32px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.25em;text-transform:uppercase;border:1px solid var(--fg);transition:all .25s;background:transparent;color:var(--fg)}
-.cta-btn:hover{background:var(--fg);color:var(--bg)}
-.cta-btn.acid{background:var(--acid);color:var(--ink);border-color:var(--acid)}
-.cta-btn.acid:hover{background:transparent;color:var(--acid);border-color:var(--acid)}
-.cta-meta{margin-top:48px;display:flex;align-items:center;gap:24px;color:var(--mute);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.22em;text-transform:uppercase}
-.cta-meta .line{flex:1;height:1px;background:var(--line);width:80px}
-
-/* ===== Project Inquiry Modal ===== */
-.modal{position:fixed;inset:0;background:rgba(10,10,10,.85);z-index:9000;display:none;align-items:flex-start;justify-content:center;padding:80px 24px;overflow-y:auto;backdrop-filter:blur(8px)}
-.modal.open{display:flex}
-.modal-panel{background:var(--paper);color:var(--ink);max-width:680px;width:100%;padding:48px 40px;position:relative}
-.modal-close{position:absolute;top:20px;right:20px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ink);font-size:18px;line-height:1;cursor:none}
-.modal-close:hover{background:var(--ink);color:var(--paper)}
-.modal h2{font-family:'Archivo Black';font-size:36px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:8px;color:var(--ink)}
-.modal h2 em{font-family:'Instrument Serif';font-style:italic;color:var(--acid-deep);font-weight:400}
-.modal .sub{font-size:13px;color:var(--mute);margin-bottom:32px;line-height:1.55}
-.modal .field{margin-bottom:18px}
-.modal .field label{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:8px;font-family:'JetBrains Mono'}
-.modal .field input,.modal .field select,.modal .field textarea{width:100%;padding:14px 16px;background:var(--paper-2);border:1px solid rgba(10,10,10,.18);font-family:'JetBrains Mono';font-size:14px;color:var(--ink);outline:none;transition:border-color .2s}
-.modal .field input:focus,.modal .field select:focus,.modal .field textarea:focus{border-color:var(--ink)}
-.modal .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.modal .submit{width:100%;padding:16px;background:var(--ink);color:var(--paper);font-family:'JetBrains Mono';font-size:11px;letter-spacing:.22em;text-transform:uppercase;cursor:none;transition:all .25s;margin-top:8px;border:1px solid var(--ink)}
-.modal .submit:hover{background:var(--acid);color:var(--ink);border-color:var(--acid)}
-.success{padding:32px 16px;text-align:center}
-.success svg{width:60px;height:60px;margin-bottom:16px}
-.success svg circle{fill:var(--acid-deep)}
-.success svg path{stroke:var(--paper);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.success h3{font-family:'Archivo Black';font-size:24px;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:8px;color:var(--ink)}
-.success p{font-size:13px;color:var(--mute);max-width:36ch;margin:0 auto;line-height:1.55}
-
-/* Mobile */
-@media(max-width:900px){
-  nav.topbar{padding:14px 20px}
-  .tb-meta{display:none}
-  .tb-controls .tbtn:first-child{display:none}
-  .rail{right:14px}
-  .rail .dot{font-size:9px}
-  section.slide{padding:120px 22px 80px}
-  .slide-num{top:100px;left:22px}
-  .fit-grid,.caps-grid,.proposal-grid{grid-template-columns:1fr}
-  .num-grid{grid-template-columns:1fr 1fr;gap:24px}
-  .case-grid{grid-template-columns:1fr 1fr}
-  .client-wall{grid-template-columns:repeat(3,1fr)}
-  .cpg-grid{grid-template-columns:1fr;gap:32px}
-  .eng-grid{grid-template-columns:1fr}
-  .modal-panel{padding:36px 24px}
-  .modal h2{font-size:28px}
-  .modal .field-row{grid-template-columns:1fr}
-}
 </style>
 </head>
 <body>
 
-<!-- Cursor -->
-<div class="cdot" id="cdot"></div>
-<div class="cring" id="cring"></div>
-
-<!-- ============================== TOPBAR ============================== -->
-<nav class="topbar">
-  <a href="muus-site.html" data-home-link class="lockup">
-    <svg viewBox="0 0 100 80"><text x="50" y="56" text-anchor="middle" font-family="Archivo Black" font-size="68" letter-spacing="-3" fill="currentColor">m.</text><path d="M16 65L88 65L74 78L4 78Z" fill="#9FE870"/></svg>
-    <div>
-      <div class="partner">MUUS × Gorilla Mind<small>Capabilities Brief · Confidential</small></div>
-    </div>
-  </a>
-  <div class="tb-meta">
-    <span>PREPARED FOR <b>GORILLA MIND</b></span>
-    <span>v.01</span>
-  </div>
-  <div class="tb-controls">
-    <button class="theme-toggle" id="themeToggle"><span class="orb"></span><span>INVERT</span></button>
-    <a class="tbtn acid" data-open-pm>START THE CONVERSATION →</a>
-  </div>
+<nav>
+  <div class="nav-logo">MU<span>U</span>S</div>
+  <div class="nav-center">GORILLA MIND × MUSE ENERGY · FULL DECK · 2026</div>
+  <div class="nav-dots" id="dots"></div>
 </nav>
 
-<!-- ============================== SLIDE RAIL ============================== -->
-<div class="rail" id="rail">
-  <a href="#title" class="dot active" data-target="title">01 — INTRO</a>
-  <a href="#fit" class="dot" data-target="fit">02 — WHY MUUS</a>
-  <a href="#capabilities" class="dot" data-target="capabilities">03 — WHAT WE DO</a>
-  <a href="#formats" class="dot" data-target="formats">04 — FORMATS</a>
-  <a href="#styles" class="dot" data-target="styles">05 — STYLES</a>
-  <a href="#stack" class="dot" data-target="stack">06 — STACK</a>
-  <a href="#numbers" class="dot" data-target="numbers">07 — NUMBERS</a>
-  <a href="#work" class="dot" data-target="work">08 — WORK</a>
-  <a href="#clients" class="dot" data-target="clients">09 — CLIENTS</a>
-  <a href="#cpg" class="dot" data-target="cpg">10 — CPG FIT</a>
-  <a href="#proposal" class="dot" data-target="proposal">11 — THE BUILD</a>
-  <a href="#engagement" class="dot" data-target="engagement">12 — MODELS</a>
-  <a href="#cta" class="dot" data-target="cta">13 — NEXT</a>
+<!-- ══ SLIDE 01: TITLE ══ -->
+<div class="slide slide-title" id="s0">
+  <div class="tl">
+    <div class="tl-tag">[ MUUS / CAPABILITIES + PROPOSAL ] · CONFIDENTIAL</div>
+    <div>
+      <div class="tl-hed">BUILT<br>TO<br><em>PERFORM.</em></div>
+    </div>
+    <div class="tl-sub">Full capabilities overview and partnership proposal for Gorilla Mind and Muse Energy. Studio profile, work, and the specific programs we'd build together.</div>
+    <div class="tl-tag" style="margin-top:0;">April 2026 · Austin, TX · Los Angeles, CA</div>
+  </div>
+  <div class="tr">
+    <div class="tr-top">[ CONTENTS ]</div>
+    <div class="agenda">
+      <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--green);letter-spacing:3px;padding:8px 0 4px;border-bottom:1px solid rgba(159,232,112,.2);">PART 01 — CAPABILITIES</div>
+      <a href="#s1" class="ag-item"><span class="ag-n">01</span><span class="ag-t">Who We Are</span><span class="ag-arr">→</span></a>
+      <a href="#s2" class="ag-item"><span class="ag-n">02</span><span class="ag-t">What We Do</span><span class="ag-arr">→</span></a>
+      <a href="#s3" class="ag-item"><span class="ag-n">03</span><span class="ag-t">Selected Work</span><span class="ag-arr">→</span></a>
+      <a href="#s4" class="ag-item"><span class="ag-n">04</span><span class="ag-t">Brand Partners</span><span class="ag-arr">→</span></a>
+      <a href="#s5" class="ag-item"><span class="ag-n">05</span><span class="ag-t">CPG + Supplement Experience</span><span class="ag-arr">→</span></a>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;color:var(--green);letter-spacing:3px;padding:8px 0 4px;border-bottom:1px solid rgba(159,232,112,.2);margin-top:4px;">PART 02 — MUSE ENERGY PROPOSAL</div>
+      <a href="#s6" class="ag-item"><span class="ag-n">06</span><span class="ag-t">The Opportunity</span><span class="ag-arr">→</span></a>
+      <a href="#s7" class="ag-item"><span class="ag-n">07</span><span class="ag-t">7-Eleven Launch Spot</span><span class="ag-arr">→</span></a>
+      <a href="#s8" class="ag-item"><span class="ag-n">08</span><span class="ag-t">Budget Breakdown</span><span class="ag-arr">→</span></a>
+      <a href="#s9" class="ag-item"><span class="ag-n">09</span><span class="ag-t">New Flavor Campaign</span><span class="ag-arr">→</span></a>
+      <a href="#s10" class="ag-item"><span class="ag-n">10</span><span class="ag-t">Creator + UGC Sprint</span><span class="ag-arr">→</span></a>
+      <a href="#s11" class="ag-item"><span class="ag-n">11</span><span class="ag-t">Snackables Ad Creative</span><span class="ag-arr">→</span></a>
+      <a href="#s12" class="ag-item"><span class="ag-n">12</span><span class="ag-t">Next Steps</span><span class="ag-arr">→</span></a>
+    </div>
+    <div class="tr-foot">MUUS MEDIA LLC · start.muusmedia.com</div>
+  </div>
 </div>
 
-<!-- ============================== SLIDE 01 — TITLE ============================== -->
-<section class="slide" id="title">
-  <div class="slide-num">[ 01 ] <b>INTRO</b></div>
-  <div class="title-stack">
-    <h1 class="title">Performance<br>creative,<br><em>built in-house.</em></h1>
-    <p class="lede">We're <strong>MUUS Media</strong> — a full-stack creative production studio for brands that ship and scale. Direction, production, paid creative, and distribution under one roof. <em>No middlemen. No bottlenecks.</em></p>
-    <div class="title-meta">
-      <div class="title-meta-block">
-        <div class="lbl">Prepared for</div>
-        <div class="val">Gorilla Mind</div>
-      </div>
-      <div class="title-meta-block">
-        <div class="lbl">From</div>
-        <div class="val">MUUS Media · <em>Austin · LA · NY</em></div>
-      </div>
-      <div class="title-meta-block">
-        <div class="lbl">Date</div>
-        <div class="val">April 2026</div>
-      </div>
-    </div>
+<!-- ══ SLIDE 02: WHO WE ARE ══ -->
+<div class="slide bg-cream" id="s1">
+  <div class="stag stag-dark">01 · Who We Are</div>
+  <div class="hed hed-dark" style="font-size:clamp(44px,5.5vw,82px);">Performance creative,<br><em>built in-house.</em></div>
+  <div class="bod bod-dark" style="max-width:600px;">MUUS is a full-stack creative production studio for brands that ship and scale. Direction, production, paid creative, and distribution under one roof. No middlemen. No bottlenecks. One team, one invoice, one timeline — from concept board to final media buy.</div>
+  <div class="stat-row">
+    <div class="stat stat-dark"><div class="stat-n">1240+</div><div class="stat-l">Assets shipped</div></div>
+    <div class="stat stat-dark"><div class="stat-n">38</div><div class="stat-l">Brand partners</div></div>
+    <div class="stat stat-dark"><div class="stat-n">412M</div><div class="stat-l">Paid impressions</div></div>
+    <div class="stat stat-dark"><div class="stat-n">3.2×</div><div class="stat-l">Avg. ROAS lift</div></div>
   </div>
-  <div class="title-marquee">
-    <span><em>Direction</em></span><span class="dot"></span>
-    <span>Production</span><span class="dot"></span>
-    <span><em>Live Capture</em></span><span class="dot"></span>
-    <span>Paid Creative</span><span class="dot"></span>
-    <span><em>Brand Films</em></span><span class="dot"></span>
-    <span>Creator Content</span><span class="dot"></span>
-    <span><em>3D / VFX</em></span><span class="dot"></span>
-    <span>Strategy</span><span class="dot"></span>
-  </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 02 — WHY MUUS ============================== -->
-<section class="slide" id="fit">
-  <div class="slide-num">[ 02 ] <b>WHY MUUS FOR GORILLA MIND</b></div>
-  <div class="slide-eyebrow">The Fit</div>
-  <h2 class="heading">You ship hard. <em>We match the pace.</em></h2>
-  <p class="lede">Gorilla Mind has built a category-defining brand on bold formulations, transparent labels, and creator-driven momentum. As you scale into Vitamin Shoppe, GNC, and Walmart, the creative needs to scale with you — without losing edge. <strong>That's the lane MUUS lives in.</strong></p>
-  <div class="fit-grid">
-    <div class="fit-cell">
-      <div class="num">01</div>
-      <h3>Built for performance</h3>
-      <p>We don't pitch awards. We ship creative that <em>moves units</em> — short-form, paid social, retail-shelf brand films, all engineered for the funnel.</p>
+<!-- ══ SLIDE 03: CAPABILITIES ══ -->
+<div class="slide bg-ink" id="s2">
+  <div class="stag">02 · What We Do</div>
+  <div class="hed" style="margin-bottom:32px;">Six lanes.<br><em>One studio.</em></div>
+  <div class="three-col" style="gap:12px;">
+    <div class="cap-card">
+      <div class="cap-num">01</div>
+      <div class="cap-title">Direction + Film</div>
+      <div class="cap-desc">Brand films, commercials, hero campaigns. Director-led from concept through delivery.</div>
+      <div class="cap-tags"><span class="tag">Commercial</span><span class="tag">Brand Film</span><span class="tag">TVC</span></div>
     </div>
-    <div class="fit-cell">
-      <div class="num">02</div>
-      <h3>In-house, end-to-end</h3>
-      <p>Direction, production, edit, color, sound, motion — under one roof. <em>One invoice, one timeline, no agency markup.</em></p>
-    </div>
-    <div class="fit-cell">
-      <div class="num">03</div>
-      <h3>Creator-fluent</h3>
-      <p>We've cast and directed hundreds of creators. We know what reads as authentic, what gets flagged as ad, and <em>what actually converts.</em></p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== SLIDE 03 — CAPABILITIES OVERVIEW ============================== -->
-<section class="slide" id="capabilities">
-  <div class="slide-num">[ 03 ] <b>CAPABILITIES OVERVIEW</b></div>
-  <div class="slide-eyebrow">What We Do</div>
-  <h2 class="heading">Six lanes. <em>One studio.</em></h2>
-  <p class="lede">Every capability you'd hire across three or four agencies — direction, production, performance creative, motion, paid, and creator — lives inside MUUS. <strong>That's the leverage.</strong> The next three slides go deeper into what we actually ship.</p>
-  <div class="caps-grid">
-    <div class="cap-cell flagship">
-      <div class="cap-num">01 / FLAGSHIP</div>
-      <h3>Live Capture & <em>Distribution</em></h3>
-      <p>Multi-camera production days that generate hundreds of platform-ready assets in 48 hours — TikTok, Reels, YouTube Shorts, paid Meta, retail. One shoot, full quarter of content.</p>
-      <div class="cap-tags"><span>Multi-format</span><span>Same-day cuts</span><span>Variant testing</span></div>
-    </div>
-    <div class="cap-cell">
+    <div class="cap-card">
       <div class="cap-num">02</div>
-      <h3>Direction & Production</h3>
-      <p>Brand films, commercials, hero campaigns. Director-led, full crews in Austin / LA / NY / Miami.</p>
-      <div class="cap-tags"><span>Brand films</span><span>Commercials</span><span>Hero spots</span></div>
+      <div class="cap-title">Production End-to-End</div>
+      <div class="cap-desc">Full crews, locations, talent, art direction, post. Premium production in-house.</div>
+      <div class="cap-tags"><span class="tag">Pre-pro</span><span class="tag">Full Crew</span><span class="tag">Post</span></div>
     </div>
-    <div class="cap-cell">
+    <div class="cap-card">
       <div class="cap-num">03</div>
-      <h3>Performance Creative</h3>
-      <p>Paid Meta, TikTok, YouTube ad creative built around hooks, retention, and CPA — not vibes. Variant testing baked in.</p>
-      <div class="cap-tags"><span>Meta</span><span>TikTok</span><span>YouTube</span><span>CTV</span></div>
+      <div class="cap-title">Performance Creative</div>
+      <div class="cap-desc">Social spots and paid creative engineered for the metric. Hooks tested, variants stamped.</div>
+      <div class="cap-tags"><span class="tag">Meta</span><span class="tag">TikTok</span><span class="tag">Variants</span></div>
     </div>
-    <div class="cap-cell">
+    <div class="cap-card">
       <div class="cap-num">04</div>
-      <h3>Creator & UGC</h3>
-      <p>Full-service casting, scripting, briefing, and management. Authentic creator content at scale, with rights handled.</p>
-      <div class="cap-tags"><span>Casting</span><span>Briefing</span><span>Rights</span></div>
+      <div class="cap-title">Creator + UGC</div>
+      <div class="cap-desc">Full-service casting, scripting, briefing, and management. Authentic creator content at scale.</div>
+      <div class="cap-tags"><span class="tag">Casting</span><span class="tag">Briefing</span><span class="tag">Rights</span></div>
     </div>
-    <div class="cap-cell">
+    <div class="cap-card">
       <div class="cap-num">05</div>
-      <h3>3D / VFX / Motion</h3>
-      <p>Product visualizations, packaging hero shots, supplement particle simulations, motion graphics, AR.</p>
-      <div class="cap-tags"><span>3D product</span><span>Motion</span><span>VFX</span></div>
+      <div class="cap-title">3D / VFX / Motion</div>
+      <div class="cap-desc">Product visualizations, packaging hero shots, supplement particle simulations, motion graphics.</div>
+      <div class="cap-tags"><span class="tag">3D</span><span class="tag">Particles</span><span class="tag">Motion</span></div>
     </div>
-    <div class="cap-cell">
+    <div class="cap-card">
       <div class="cap-num">06</div>
-      <h3>Brand & Identity</h3>
-      <p>Visual systems, packaging design, retail POS, brand guidelines, sub-brand launches. Strategy through execution.</p>
-      <div class="cap-tags"><span>Identity</span><span>Packaging</span><span>POS</span></div>
+      <div class="cap-title">Paid Media + Strategy</div>
+      <div class="cap-desc">Meta, TikTok, YouTube buying and optimization owned in-house. Same team makes and runs the work.</div>
+      <div class="cap-tags"><span class="tag">Meta</span><span class="tag">TikTok</span><span class="tag">YouTube</span></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 04 — CONTENT FORMATS DEEP DIVE ============================== -->
-<section class="slide" id="formats">
-  <div class="slide-num">[ 04 ] <b>CONTENT FORMATS</b></div>
-  <div class="slide-eyebrow">Deep Dive · Part 1 of 3</div>
-  <h2 class="heading">Every format. <em>Every length. Every platform.</em></h2>
-  <p class="lede">A single MUUS production can output <strong>30+ deliverables</strong> across video, photo, motion, and design. Below is a complete inventory of what we ship — organized by category, length, and platform.</p>
-
-  <div class="formats-grid">
-    <!-- VIDEO -->
-    <div class="format-cat">
-      <div class="format-cat-head">
-        <span class="format-cat-num">01</span>
-        <h3>Video Content</h3>
-        <span class="format-cat-tag">Most volume</span>
-      </div>
-      <div class="format-rows">
-        <div class="format-row">
-          <div class="format-row-name">Hero brand films</div>
-          <div class="format-row-spec">60s · 90s · 2-3 min</div>
-          <div class="format-row-use">TVC, web hero, retail, YouTube pre-roll</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Commercials</div>
-          <div class="format-row-spec">15s · 30s · 60s</div>
-          <div class="format-row-use">Broadcast, OTT/CTV, paid social, YouTube</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Short-form social</div>
-          <div class="format-row-spec">9:16 · 6s–60s</div>
-          <div class="format-row-use">TikTok, Reels, YouTube Shorts, Stories</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Paid social ads</div>
-          <div class="format-row-spec">1:1 · 4:5 · 9:16 · 16:9</div>
-          <div class="format-row-use">Meta, TikTok Ads, YouTube, Snap, Pinterest</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">UGC creator content</div>
-          <div class="format-row-spec">9:16 · 4:5 · 15-90s</div>
-          <div class="format-row-use">Whitelisted ads, organic creator posts</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Product demos / explainers</div>
-          <div class="format-row-spec">15s · 30s · 60s</div>
-          <div class="format-row-use">PDPs, paid funnel, retail TV walls</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Long-form / docu-style</div>
-          <div class="format-row-spec">3-10 min</div>
-          <div class="format-row-use">YouTube, founder content, brand storytelling</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Behind-the-scenes / GRWM</div>
-          <div class="format-row-spec">9:16 · variable</div>
-          <div class="format-row-use">Authenticity content, athlete features</div>
-        </div>
-      </div>
+<!-- ══ SLIDE 04: WORK ══ -->
+<div class="slide bg-ink" id="s3">
+  <div class="stag">03 · Selected Work</div>
+  <div class="hed" style="margin-bottom:8px;">Premium production.<br><em>Performance results.</em></div>
+  <div class="work-grid">
+    <div class="work-tile">
+      <div class="work-client">LA GOLF</div>
+      <div class="work-title">Bel Air X</div>
+      <div class="work-desc">Brand commercial — director-led, cinematic, full crew production in LA.</div>
     </div>
-
-    <!-- PHOTO + STILL -->
-    <div class="format-cat">
-      <div class="format-cat-head">
-        <span class="format-cat-num">02</span>
-        <h3>Photo & Stills</h3>
-        <span class="format-cat-tag">Captured same day</span>
-      </div>
-      <div class="format-rows">
-        <div class="format-row">
-          <div class="format-row-name">Product photography</div>
-          <div class="format-row-spec">High-res, 360°, transparent</div>
-          <div class="format-row-use">Ecommerce PDPs, Amazon, retail</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Lifestyle photography</div>
-          <div class="format-row-spec">Portrait + landscape</div>
-          <div class="format-row-use">Web hero, paid social stills, OOH</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Editorial / campaign stills</div>
-          <div class="format-row-spec">Cinematic, art-directed</div>
-          <div class="format-row-use">Hero campaigns, magazine, retail POS</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Athlete / talent portraits</div>
-          <div class="format-row-spec">Studio + on-location</div>
-          <div class="format-row-use">Ambassador kits, PR, brand library</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Macro / detail shots</div>
-          <div class="format-row-spec">Texture, ingredient, packaging</div>
-          <div class="format-row-use">Premium hero stills, packaging beauty</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Event + activation coverage</div>
-          <div class="format-row-spec">Live, candid, branded</div>
-          <div class="format-row-use">Trade shows, launches, athlete events</div>
-        </div>
-      </div>
+    <div class="work-tile">
+      <div class="work-client">ADIDAS FOOTBALL</div>
+      <div class="work-title">Summer of Soccer</div>
+      <div class="work-desc">Live capture — FIFA Kit Reveal in LA. Multi-camera, same-day delivery.</div>
     </div>
-
-    <!-- DESIGN + MOTION -->
-    <div class="format-cat">
-      <div class="format-cat-head">
-        <span class="format-cat-num">03</span>
-        <h3>Design & Motion</h3>
-        <span class="format-cat-tag">Built in-house</span>
-      </div>
-      <div class="format-rows">
-        <div class="format-row">
-          <div class="format-row-name">Static social posts</div>
-          <div class="format-row-spec">1:1 · 4:5 · 9:16</div>
-          <div class="format-row-use">Feed grid, paid static, retail flyers</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Carousel content</div>
-          <div class="format-row-spec">3-10 slide narratives</div>
-          <div class="format-row-use">IG/LinkedIn, education, ingredient deep-dives</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Motion graphics</div>
-          <div class="format-row-spec">2D animation, kinetic type</div>
-          <div class="format-row-use">Explainers, lower-thirds, brand idents</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">3D product renders</div>
-          <div class="format-row-spec">Photoreal CGI</div>
-          <div class="format-row-use">Hero shots, packaging beauty, OOH</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Particle simulations</div>
-          <div class="format-row-spec">Powder, liquid, ingredient</div>
-          <div class="format-row-use">Supplement / pre-workout hero moments</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Packaging mockups</div>
-          <div class="format-row-spec">Print-ready dielines</div>
-          <div class="format-row-use">Concept exploration, retail launches</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Brand kits + templates</div>
-          <div class="format-row-spec">Editable team assets</div>
-          <div class="format-row-use">Internal social ops, ambassador kits</div>
-        </div>
-      </div>
+    <div class="work-tile">
+      <div class="work-client">GUESS EYEWEAR</div>
+      <div class="work-title">SS22 Brand Film</div>
+      <div class="work-desc">Editorial fashion film — model-led, magazine-energy, premium finishing.</div>
     </div>
+    <div class="work-tile">
+      <div class="work-client">JD SPORTS / NIKE</div>
+      <div class="work-title">Revitalize Campaign</div>
+      <div class="work-desc">Studio production — talent direction, lighting, full post. End-to-end.</div>
+    </div>
+    <div class="work-tile">
+      <div class="work-client">UPNEEQ / LIPPE TAYLOR</div>
+      <div class="work-title">20-Creator UGC</div>
+      <div class="work-desc">300+ videos across multiple SKUs. 100+ creators. Full MLR compliance.</div>
+    </div>
+    <div class="work-tile">
+      <div class="work-client">EA SPORTS · RIOT GAMES</div>
+      <div class="work-title">Gaming Campaigns</div>
+      <div class="work-desc">Brand campaigns, social cinematic, and launch content for gaming franchises.</div>
+    </div>
+  </div>
+</div>
 
-    <!-- DIGITAL + WEB -->
-    <div class="format-cat">
-      <div class="format-cat-head">
-        <span class="format-cat-num">04</span>
-        <h3>Digital & Web</h3>
-        <span class="format-cat-tag">Direct-response</span>
+<!-- ══ SLIDE 05: CLIENTS ══ -->
+<div class="slide bg-cream" id="s4">
+  <div class="stag stag-dark">04 · Brand Partners</div>
+  <div class="hed hed-dark">Brands that <em>ship.</em></div>
+  <div class="bod bod-dark">From global sportswear to category-defining CPG to gaming franchises — MUUS works with brands that are scaling fast.</div>
+  <div class="client-list">
+    <div class="client-chip">Adidas</div><div class="client-chip">JD Sports</div><div class="client-chip">GUESS</div>
+    <div class="client-chip">LA Golf</div><div class="client-chip">Riot Games</div><div class="client-chip">EA Sports</div>
+    <div class="client-chip">Puma</div><div class="client-chip">Venmo</div><div class="client-chip">Activision</div>
+    <div class="client-chip">NBPA</div><div class="client-chip">ZBiotics</div><div class="client-chip">Path Water</div>
+    <div class="client-chip">Upneeq</div><div class="client-chip">FloJo</div><div class="client-chip">Leisure Hydration</div>
+    <div class="client-chip">Slauson & Co.</div><div class="client-chip">WTRMLN</div><div class="client-chip">Joon</div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 06: CPG EXPERIENCE ══ -->
+<div class="slide bg-mid" id="s5">
+  <div class="stag stag-dark">05 · CPG + Supplement Experience</div>
+  <div class="hed hed-dark" style="font-size:clamp(40px,5vw,74px);">We've built creative<br>for <em>your category.</em></div>
+  <div class="two-col" style="gap:48px;margin-top:24px;">
+    <div class="bod bod-dark">Through Snackables Studio — our performance content arm — MUUS has shipped creative for fast-moving CPG, beverage, and wellness brands. We know what works in feed, on shelf, and in the funnel.</div>
+    <div style="display:flex;flex-direction:column;gap:2px;">
+      <div style="background:var(--ink);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--cream);">ZBiotics · Upneeq · Path Water</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--green);">Paid Meta · TikTok · UGC</div>
       </div>
-      <div class="format-rows">
-        <div class="format-row">
-          <div class="format-row-name">Landing pages / microsites</div>
-          <div class="format-row-spec">Webflow / custom HTML</div>
-          <div class="format-row-use">Product launches, campaigns, funnels</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Email creative</div>
-          <div class="format-row-spec">HTML, animated GIF</div>
-          <div class="format-row-use">Klaviyo, lifecycle, launches</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Display / banner ads</div>
-          <div class="format-row-spec">Static + animated HTML5</div>
-          <div class="format-row-use">Google Display, programmatic, retargeting</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">PDP / Amazon A+ content</div>
-          <div class="format-row-spec">Image stack, video, modules</div>
-          <div class="format-row-use">DTC site, Amazon listings, retail e-com</div>
-        </div>
-        <div class="format-row">
-          <div class="format-row-name">Retail POS / OOH</div>
-          <div class="format-row-spec">Print-ready CMYK</div>
-          <div class="format-row-use">Vitamin Shoppe, GNC, Walmart endcaps</div>
-        </div>
+      <div style="background:var(--ink);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--cream);">WTRMLN · FloJo · Leisure</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--green);">Lifestyle · Editorial · Social</div>
+      </div>
+      <div style="background:var(--ink);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--cream);">300+ UGC videos — 1 brand</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--green);">Multi-SKU · 100+ creators</div>
+      </div>
+      <div style="background:var(--ink);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--cream);">FTC + MLR compliance baked in</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--green);">RX category experience</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 05 — VIDEO STYLES DEEP DIVE ============================== -->
-<section class="slide" id="styles">
-  <div class="slide-num">[ 05 ] <b>VIDEO STYLES</b></div>
-  <div class="slide-eyebrow">Deep Dive · Part 2 of 3</div>
-  <h2 class="heading">Eight ways<br>to <em>tell the story.</em></h2>
-  <p class="lede">Every brand needs a visual range — hero films can't sound like UGC; UGC shouldn't look like a commercial. We work fluently across <strong>eight distinct styles</strong>, often blending two or three within a single campaign. Below is the working palette.</p>
+<!-- ══ PROPOSAL DIVIDER ══ -->
+<div class="slide-divider" id="s6-div">
+  <div class="div-pre">[ PART 02 ] · MUSE ENERGY × MUUS</div>
+  <div class="div-hed">The<br>Proposal.</div>
+  <div class="div-sub">Three programs — 7-Eleven launch spot, late June flavor campaign, and an ongoing creator and ad creative engine. Everything under one studio.</div>
+</div>
 
-  <div class="styles-grid">
-    <div class="style-cell">
-      <div class="style-num">01</div>
-      <h3>Cinematic <em>brand</em></h3>
-      <p>Lensed, lit, art-directed. Shallow depth, anamorphic when it serves the story. Think hero films, TVCs, premium launches.</p>
-      <div class="style-meta">
-        <span class="style-tag">Anamorphic</span>
-        <span class="style-tag">Hero</span>
-        <span class="style-tag">TVC</span>
-      </div>
-      <div class="style-ref">Reference: <em>LA Golf Bel Air X · GUESS SS22 · adidas Football</em></div>
+<!-- ══ SLIDE 07: OVERVIEW ══ -->
+<div class="slide bg-cream" id="s6">
+  <div class="stag stag-dark">06 · The Opportunity</div>
+  <div class="hed hed-dark" style="font-size:clamp(40px,5vw,74px);">Three programs.<br><em>One studio.</em><br>Full execution.</div>
+  <div class="bod bod-dark">Muse is at a critical inflection — $700K ad spend, a $1.5M goal, the 7-Eleven launch, and a new flavor dropping in June. MUUS runs all three lanes simultaneously. No handoffs, no fragmentation.</div>
+  <div class="stat-row" style="margin-top:32px;">
+    <div class="stat stat-dark"><div class="stat-n">$700K</div><div class="stat-l">Current ad spend</div></div>
+    <div class="stat stat-dark"><div class="stat-n">$1.5M</div><div class="stat-l">Target spend goal</div></div>
+    <div class="stat stat-dark"><div class="stat-n">50</div><div class="stat-l">Creators / month</div></div>
+    <div class="stat stat-dark"><div class="stat-n">3</div><div class="stat-l">Active programs</div></div>
+  </div>
+</div>
+
+<!-- ══ SLIDE 08: 7-ELEVEN ══ -->
+<div class="slide bg-ink" id="s7">
+  <div class="stag">07 · 7-Eleven Launch Spot</div>
+  <div class="two-col">
+    <div>
+      <div class="hed">7-Eleven<br>Hero <em>Spot.</em></div>
+      <div class="bod">OTT-ready hero campaign with Ghost bodega energy. Tight angles, practical lighting, motion blur, low frame rates. Two production approaches — pick one based on budget and access.</div>
     </div>
-
-    <div class="style-cell">
-      <div class="style-num">02</div>
-      <h3>Documentary / <em>verité</em></h3>
-      <p>Handheld, observational, real moments. Founder content, athlete features, behind-the-scenes that earns trust.</p>
-      <div class="style-meta">
-        <span class="style-tag">Handheld</span>
-        <span class="style-tag">Founder</span>
-        <span class="style-tag">Long-form</span>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="opt-card">
+        <div class="opt-stag">OPTION A · REAL STORE</div>
+        <div class="opt-title">Location Shoot</div>
+        <div class="opt-price">$43,000 — $50,000</div>
+        <div class="opt-desc">Film inside an actual 7-Eleven. Professional talent, full lighting and grip, authentic environment. Overnight or early morning access window.</div>
       </div>
-      <div class="style-ref">Reference: <em>Athlete features · founder Q&A · gym profile pieces</em></div>
-    </div>
-
-    <div class="style-cell">
-      <div class="style-num">03</div>
-      <h3>UGC / <em>creator-led</em></h3>
-      <p>Self-shot or styled to feel native. Vertical, unpolished by design. Built to read as authentic in feed and convert in paid.</p>
-      <div class="style-meta">
-        <span class="style-tag">9:16</span>
-        <span class="style-tag">Whitelisted</span>
-        <span class="style-tag">Native-feeling</span>
+      <div class="opt-card">
+        <div class="rec-badge">RECOMMENDED</div>
+        <div class="opt-stag">OPTION B · SET BUILD</div>
+        <div class="opt-title">Warehouse Build</div>
+        <div class="opt-price">$79,000 — $90,000</div>
+        <div class="opt-desc">One corner, one aisle, one fridge wall built in a controlled LA warehouse. Full creative ownership, reusable set, premium talent, complete art direction.</div>
       </div>
-      <div class="style-ref">Reference: <em>Upneeq 20-creator campaign · ZBiotics paid creative</em></div>
-    </div>
-
-    <div class="style-cell">
-      <div class="style-num">04</div>
-      <h3>Performance / <em>direct-response</em></h3>
-      <p>Hook in 3 seconds. CTA in 30. Built around testing and ROAS, not aesthetics. Variant pairs and A/B-ready by default.</p>
-      <div class="style-meta">
-        <span class="style-tag">Hook-driven</span>
-        <span class="style-tag">CPA-tuned</span>
-        <span class="style-tag">A/B variants</span>
-      </div>
-      <div class="style-ref">Reference: <em>Meta + TikTok ad libraries with 10+ variant cuts</em></div>
-    </div>
-
-    <div class="style-cell">
-      <div class="style-num">05</div>
-      <h3>Studio / <em>tabletop</em></h3>
-      <p>Controlled lighting, motion-controlled rigs, slow-mo on Phantom. Product hero shots, ingredient drops, packaging beauty.</p>
-      <div class="style-meta">
-        <span class="style-tag">Tabletop</span>
-        <span class="style-tag">Phantom</span>
-        <span class="style-tag">Motion control</span>
-      </div>
-      <div class="style-ref">Reference: <em>Liquid pour, powder drop, capsule reveal hero shots</em></div>
-    </div>
-
-    <div class="style-cell">
-      <div class="style-num">06</div>
-      <h3>3D / <em>CGI hybrid</em></h3>
-      <p>Photoreal product CGI integrated with live action. Particle systems, supplement clouds, packaging that builds itself on screen.</p>
-      <div class="style-meta">
-        <span class="style-tag">Photoreal</span>
-        <span class="style-tag">Particles</span>
-        <span class="style-tag">Live + CGI</span>
-      </div>
-      <div class="style-ref">Reference: <em>Pre-workout particle hero · packaging build sequences</em></div>
-    </div>
-
-    <div class="style-cell">
-      <div class="style-num">07</div>
-      <h3>Athlete / <em>action capture</em></h3>
-      <p>High frame-rate, multi-camera coverage of training, lifting, performance. Fast cuts, kinetic edit, sweat and grit visible.</p>
-      <div class="style-meta">
-        <span class="style-tag">HFR</span>
-        <span class="style-tag">Multi-cam</span>
-        <span class="style-tag">In-gym</span>
-      </div>
-      <div class="style-ref">Reference: <em>JD Sports Summer of Soccer · NBPA athlete content</em></div>
-    </div>
-
-    <div class="style-cell">
-      <div class="style-num">08</div>
-      <h3>Editorial / <em>fashion-forward</em></h3>
-      <p>High-style, model-led, magazine-energy. Brings premium-fashion gloss to performance categories without losing edge.</p>
-      <div class="style-meta">
-        <span class="style-tag">Fashion</span>
-        <span class="style-tag">Model-led</span>
-        <span class="style-tag">Editorial</span>
-      </div>
-      <div class="style-ref">Reference: <em>GUESS Eyewear SS22 · adidas Football editorial</em></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 06 — PRODUCTION STACK DEEP DIVE ============================== -->
-<section class="slide" id="stack">
-  <div class="slide-num">[ 06 ] <b>PRODUCTION STACK</b></div>
-  <div class="slide-eyebrow">Deep Dive · Part 3 of 3</div>
-  <h2 class="heading">The <em>full stack</em><br>under one roof.</h2>
-  <p class="lede">Most studios outsource at least one of these. We don't. Pre-production, production, and post all happen in-house with vetted crews and partners. <strong>One team. One timeline. One invoice.</strong></p>
-
-  <div class="stack-grid">
-    <!-- PRE-PRODUCTION -->
-    <div class="stack-col">
-      <div class="stack-col-head">
-        <div class="stack-col-num">01</div>
-        <h3>Pre-Production</h3>
-        <p class="stack-col-sub">Strategy, concept, casting, logistics</p>
-      </div>
-      <ul class="stack-list">
-        <li><span>Creative direction</span><i>Concept boards, treatments, pitch decks</i></li>
-        <li><span>Strategy + planning</span><i>Brief intake, audience, KPI mapping</i></li>
-        <li><span>Scriptwriting</span><i>VO, dialogue, hooks, ad scripts</i></li>
-        <li><span>Storyboarding</span><i>Shot lists, visual references</i></li>
-        <li><span>Talent + creator casting</span><i>Athlete, model, UGC creator sourcing</i></li>
-        <li><span>Location scouting</span><i>Studios, gyms, outdoor, retail</i></li>
-        <li><span>Wardrobe + styling</span><i>Apparel pulls, prop sourcing</i></li>
-        <li><span>Permits + insurance</span><i>Production legal, releases, COIs</i></li>
-        <li><span>Call sheets + scheduling</span><i>Day-of logistics, crew coordination</i></li>
-      </ul>
+<!-- ══ SLIDE 09: BUDGET ══ -->
+<div class="slide bg-cream" id="s8">
+  <div class="stag stag-dark">08 · Budget Breakdown</div>
+  <div class="hed hed-dark" style="font-size:clamp(36px,4.5vw,66px);margin-bottom:24px;">Full line item<br><em>budget detail.</em></div>
+  <div class="two-col" style="gap:40px;">
+    <div>
+      <div class="bud-col-head">Option A · Real Store</div>
+      <div class="bud-row"><span class="bud-item">Director + DP (2 days)</span><span class="bud-cost">$6,000</span></div>
+      <div class="bud-row"><span class="bud-item">Camera — RED / ARRI</span><span class="bud-cost">$3,500</span></div>
+      <div class="bud-row"><span class="bud-item">Grip + lighting package</span><span class="bud-cost">$2,500</span></div>
+      <div class="bud-row"><span class="bud-item">Talent — 2-3 models + casting</span><span class="bud-cost">$8,000</span></div>
+      <div class="bud-row"><span class="bud-item">Wardrobe + styling</span><span class="bud-cost">$3,000</span></div>
+      <div class="bud-row"><span class="bud-item">Props + product dressing</span><span class="bud-cost">$2,000</span></div>
+      <div class="bud-row"><span class="bud-item">Location access + permits</span><span class="bud-cost">$4,000</span></div>
+      <div class="bud-row"><span class="bud-item">Art direction + production design</span><span class="bud-cost">$3,500</span></div>
+      <div class="bud-row"><span class="bud-item">Post — edit, color, sound</span><span class="bud-cost">$6,000</span></div>
+      <div class="bud-row"><span class="bud-item">Format exports + travel</span><span class="bud-cost">$4,500</span></div>
+      <div class="bud-total"><span class="bud-total-l">TOTAL A</span><span class="bud-total-n">$43K — $50K</span></div>
     </div>
-
-    <!-- PRODUCTION -->
-    <div class="stack-col">
-      <div class="stack-col-head">
-        <div class="stack-col-num">02</div>
-        <h3>Production</h3>
-        <p class="stack-col-sub">On-set, on-location, on-time</p>
-      </div>
-      <ul class="stack-list">
-        <li><span>Direction</span><i>Director-led on every shoot</i></li>
-        <li><span>Cinematography</span><i>DP + 1st AC, full G&E support</i></li>
-        <li><span>Camera packages</span><i>RED, ARRI, Sony FX series, Phantom</i></li>
-        <li><span>Lensing</span><i>Anamorphic, vintage glass, macro</i></li>
-        <li><span>Lighting + grip</span><i>Full studio + location packages</i></li>
-        <li><span>Sound recording</span><i>Boom, lavs, sync, on-set mixing</i></li>
-        <li><span>Photography</span><i>Stills DP captured day-of shoot</i></li>
-        <li><span>Drone / aerial</span><i>FAA-certified pilots, FPV when needed</i></li>
-        <li><span>Multi-cam coverage</span><i>3-6 camera rigs for live capture days</i></li>
-      </ul>
-    </div>
-
-    <!-- POST-PRODUCTION -->
-    <div class="stack-col">
-      <div class="stack-col-head">
-        <div class="stack-col-num">03</div>
-        <h3>Post-Production</h3>
-        <p class="stack-col-sub">Where it actually gets made</p>
-      </div>
-      <ul class="stack-list">
-        <li><span>Editorial</span><i>Premiere + Resolve workflows</i></li>
-        <li><span>Color grading</span><i>DaVinci Resolve, calibrated suites</i></li>
-        <li><span>Sound design + mix</span><i>Pro Tools, custom design + foley</i></li>
-        <li><span>Music supervision</span><i>Licensed + original score</i></li>
-        <li><span>Motion graphics</span><i>After Effects, Cinema 4D, Houdini</i></li>
-        <li><span>VFX + compositing</span><i>Nuke, Flame, AE comp</i></li>
-        <li><span>3D / CGI</span><i>Photoreal product, particle simulations</i></li>
-        <li><span>Versioning + delivery</span><i>30+ format/spec exports per shoot</i></li>
-        <li><span>Retouch + finishing</span><i>Photo retouch, beauty work, cleanup</i></li>
-      </ul>
+    <div>
+      <div class="bud-col-head">Option B · Set Build</div>
+      <div class="bud-row"><span class="bud-item">Director + DP (3 days)</span><span class="bud-cost">$9,000</span></div>
+      <div class="bud-row"><span class="bud-item">Camera — ARRI Alexa premium</span><span class="bud-cost">$5,500</span></div>
+      <div class="bud-row"><span class="bud-item">Full cinema lighting + grip</span><span class="bud-cost">$4,500</span></div>
+      <div class="bud-row"><span class="bud-item">Talent — 3-4 models + agency</span><span class="bud-cost">$14,000</span></div>
+      <div class="bud-row"><span class="bud-item">Wardrobe + stylist + HMU</span><span class="bud-cost">$5,000</span></div>
+      <div class="bud-row"><span class="bud-item">Set build — aisle + fridge wall</span><span class="bud-cost">$8,000</span></div>
+      <div class="bud-row"><span class="bud-item">Fridge + cooler rental</span><span class="bud-cost">$4,000</span></div>
+      <div class="bud-row"><span class="bud-item">Warehouse — 3 days</span><span class="bud-cost">$3,500</span></div>
+      <div class="bud-row"><span class="bud-item">Art dept + production design</span><span class="bud-cost">$9,000</span></div>
+      <div class="bud-row"><span class="bud-item">Post + formats + travel</span><span class="bud-cost">$19,500</span></div>
+      <div class="bud-total"><span class="bud-total-l">TOTAL B</span><span class="bud-total-n">$79K — $90K</span></div>
     </div>
   </div>
+</div>
 
-  <!-- Locations + crew strip -->
-  <div class="stack-strip">
-    <div class="stack-strip-cell">
-      <div class="strip-lbl">Crews</div>
-      <div class="strip-val">Austin · Los Angeles · New York · Miami</div>
+<!-- ══ SLIDE 10: FLAVORS ══ -->
+<div class="slide bg-ink" id="s9">
+  <div class="stag">09 · New Flavor Campaign</div>
+  <div class="two-col">
+    <div>
+      <div class="hed">Late June<br><em>Flavor Drop.</em></div>
+      <div class="bod" style="margin-bottom:32px;">Multi-location shoot in LA including Woodland Hills athlete gym. MUUS B-team on the ground for BTS, social, skits, and B-roll alongside the A-team principal shoot.</div>
     </div>
-    <div class="stack-strip-cell">
-      <div class="strip-lbl">Studios</div>
-      <div class="strip-val">In-house ATX studio · partner studios in LA / NY</div>
-    </div>
-    <div class="stack-strip-cell">
-      <div class="strip-lbl">Travel</div>
-      <div class="strip-val">Domestic + international, full insurance</div>
-    </div>
-    <div class="stack-strip-cell">
-      <div class="strip-lbl">Turnaround</div>
-      <div class="strip-val">14-day standard · 48-hour rush available</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== SLIDE 04 — NUMBERS ============================== -->
-<section class="slide" id="numbers">
-  <div class="slide-num">[ 07 ] <b>BY THE NUMBERS</b></div>
-  <div class="slide-eyebrow">Track Record</div>
-  <h2 class="heading">What we've shipped<br>at <em>scale.</em></h2>
-  <div class="num-grid">
-    <div class="num-cell">
-      <div class="big">1240<sup>+</sup></div>
-      <div class="lbl">Assets shipped</div>
-    </div>
-    <div class="num-cell">
-      <div class="big">38<sup>brands</sup></div>
-      <div class="lbl">Brand partners</div>
-    </div>
-    <div class="num-cell">
-      <div class="big">412<sup>M</sup></div>
-      <div class="lbl">Paid impressions</div>
-    </div>
-    <div class="num-cell">
-      <div class="big">3.2<sup>×</sup></div>
-      <div class="lbl">Avg. ROAS lift</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== SLIDE 05 — SELECTED WORK ============================== -->
-<section class="slide" id="work">
-  <div class="slide-num">[ 08 ] <b>SELECTED WORK</b></div>
-  <div class="slide-eyebrow">Recent Shipments</div>
-  <h2 class="heading">Premium production. <em>Performance results.</em></h2>
-  <p class="lede">A snapshot of recent work across sport, fashion, gaming, and lifestyle. The same direction, production, and finishing standards we'd bring to Gorilla Mind.</p>
-  <div class="case-grid">
-    <article class="case-card">
-      <video autoplay muted loop playsinline preload="metadata" poster="https://cdn.prod.website-files.com/65c3ce1a2c1d32f772b35a91/6726c523d2ddc8bffe50e219_la-golf.webp">
-        <source src="https://cdn.prod.website-files.com/65c3ce1a2c1d32f772b35a69/6736c8752758be3d8fced5f5_LA%20Golf%20Web%20Vid.mp4" type="video/mp4">
-      </video>
-      <div class="case-overlay">
-        <div class="num">CASE / <b>01</b></div>
-        <div class="info">
-          <div class="client">LA Golf</div>
-          <div class="tag">BEL AIR X · BRAND COMMERCIAL</div>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-nc"><div class="phase-n">01</div><div class="phase-vl"></div></div>
+        <div class="phase-c">
+          <div class="phase-stag">A-TEAM · PRINCIPAL</div>
+          <div class="phase-t">Hero Production</div>
+          <div class="phase-d">Director-led shoot across all LA locations. Athletes, ambassadors, product hero content, and campaign footage.</div>
         </div>
       </div>
-    </article>
-    <article class="case-card">
-      <video autoplay muted loop playsinline preload="metadata" poster="https://cdn.prod.website-files.com/65c3ce1a2c1d32f772b35a91/6726c52eb07de6e0ad17e1f9_summer-of-soccer.webp">
-        <source src="https://cdn.prod.website-files.com/65c3ce1a2c1d32f772b35a69/6736c88ab411370307f031cd_Summer%20of%20Soccer%20Web%20Vid.mp4" type="video/mp4">
-      </video>
-      <div class="case-overlay">
-        <div class="num">CASE / <b>02</b></div>
-        <div class="info">
-          <div class="client">adidas Football</div>
-          <div class="tag">SUMMER OF SOCCER · LIVE CAPTURE</div>
+      <div class="phase">
+        <div class="phase-nc"><div class="phase-n">02</div><div class="phase-vl"></div></div>
+        <div class="phase-c">
+          <div class="phase-stag">B-TEAM · MUUS SUPPORT</div>
+          <div class="phase-t">BTS + Social</div>
+          <div class="phase-d">Behind the scenes capture, short form social skits, lo-fi organic content, same-day selects for stories.</div>
         </div>
       </div>
-    </article>
-    <article class="case-card">
-      <video autoplay muted loop playsinline preload="metadata" poster="https://cdn.prod.website-files.com/65c3ce1a2c1d32f772b35a91/6726c5120696de61ad37d271_guess.webp">
-        <source src="https://cdn.prod.website-files.com/65c3ce1a2c1d32f772b35a69/6736c83731f45728f9051100_Guess%20Web%20Vid.mp4" type="video/mp4">
-      </video>
-      <div class="case-overlay">
-        <div class="num">CASE / <b>03</b></div>
-        <div class="info">
-          <div class="client">GUESS Eyewear</div>
-          <div class="tag">SS22 · BRAND FILM</div>
+      <div class="phase">
+        <div class="phase-nc"><div class="phase-n">03</div><div class="phase-vl"></div></div>
+        <div class="phase-c">
+          <div class="phase-stag">ACTIVATION</div>
+          <div class="phase-t">Athlete + Ambassador</div>
+          <div class="phase-d">Sign-up content, meet-the-team moments, ambassador kit coordination if activation expands.</div>
         </div>
       </div>
-    </article>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 06 — CLIENTS ============================== -->
-<section class="slide" id="clients">
-  <div class="slide-num">[ 09 ] <b>BRAND PARTNERS</b></div>
-  <div class="slide-eyebrow">Trusted By</div>
-  <h2 class="heading">Brands that <em>ship</em>.</h2>
-  <p class="lede">From global sportswear to category-defining CPG to gaming franchises — the studio works with brands that are scaling.</p>
-  <div class="client-wall">
-    <div class="client-cell">adidas</div>
-    <div class="client-cell">JD Sports</div>
-    <div class="client-cell">GUESS</div>
-    <div class="client-cell">LA Golf</div>
-    <div class="client-cell">Riot Games</div>
-    <div class="client-cell">EA Sports</div>
-    <div class="client-cell">Puma</div>
-    <div class="client-cell">Venmo</div>
-    <div class="client-cell">Activision</div>
-    <div class="client-cell">NBPA</div>
-    <div class="client-cell">ZBiotics</div>
-    <div class="client-cell">Path Water</div>
-    <div class="client-cell">WTRMLN</div>
-    <div class="client-cell">Joon</div>
-    <div class="client-cell">Upneeq</div>
-    <div class="client-cell">FloJo</div>
-    <div class="client-cell">Leisure</div>
-    <div class="client-cell">Slauson & Co.</div>
+<!-- ══ SLIDE 11: CREATOR SPRINT ══ -->
+<div class="slide bg-mid" id="s10">
+  <div class="stag stag-dark">10 · Creator + UGC Sprint</div>
+  <div class="hed hed-dark" style="font-size:clamp(36px,4.5vw,66px);margin-bottom:28px;">50 creators.<br><em>Every month.</em></div>
+  <div class="three-col">
+    <div class="creator-m" data-m="01">
+      <div class="cm-stag">MONTH 01</div>
+      <div class="cm-title">Build + Test</div>
+      <div class="cm-item">Source and brief 50 creators</div>
+      <div class="cm-item">15s lifestyle moments — gym, outdoor, social</div>
+      <div class="cm-item">9:16, 4:5, 1:1 with and without captions</div>
+      <div class="cm-item">First batch in 3 weeks</div>
+      <div class="cm-item">MUUS handles all contracts and product</div>
+    </div>
+    <div class="creator-m" data-m="02">
+      <div class="cm-stag">MONTH 02</div>
+      <div class="cm-title">Analyze + Iterate</div>
+      <div class="cm-item">Review paid performance from Month 1</div>
+      <div class="cm-item">Brief Month 2 using winning signals only</div>
+      <div class="cm-item">Flavor specific and occasion based angles</div>
+      <div class="cm-item">Weekly 30 min performance check-in</div>
+      <div class="cm-item">Course correct in real time not monthly</div>
+    </div>
+    <div class="creator-m" data-m="03">
+      <div class="cm-stag">MONTH 03</div>
+      <div class="cm-title">Scale + Win</div>
+      <div class="cm-item">Double down on proven formats</div>
+      <div class="cm-item">7-Eleven and June flavor activation content</div>
+      <div class="cm-item">Comedic formats for organic TikTok</div>
+      <div class="cm-item">Sustains $1.5M spend target</div>
+      <div class="cm-item">Creative compounds month over month</div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 07 — CPG / SUPPLEMENT FIT ============================== -->
-<section class="slide" id="cpg">
-  <div class="slide-num">[ 10 ] <b>CPG / SUPPLEMENT EXPERIENCE</b></div>
-  <div class="slide-eyebrow">Vertical Track Record</div>
-  <h2 class="heading">We've built creative for<br>your <em>category</em>.</h2>
-  <p class="lede">Through Snackables Studio (our performance-content arm), MUUS has shipped content for some of the fastest-moving CPG, beverage, and wellness brands. <strong>We know what works on shelf, in feed, and in the funnel.</strong></p>
-  <div class="cpg-grid">
-    <div class="cpg-stack">
-      <div class="item"><div class="name">ZBiotics<em>Probiotic functional drink</em></div><div class="vert">Paid Meta · TikTok</div></div>
-      <div class="item"><div class="name">Path Water<em>Sustainable hydration</em></div><div class="vert">Photo · Always-on social</div></div>
-      <div class="item"><div class="name">WTRMLN<em>Cold-pressed beverage</em></div><div class="vert">Lifestyle · Editorial</div></div>
-      <div class="item"><div class="name">Joon<em>Wellness supplements</em></div><div class="vert">UGC · Social-first</div></div>
-      <div class="item"><div class="name">Upneeq<em>Eye-care brand (RX)</em></div><div class="vert">20-creator UGC campaign</div></div>
-      <div class="item"><div class="name">FloJo<em>Wellness</em></div><div class="vert">UGC · Paid funnels</div></div>
-      <div class="item"><div class="name">Leisure<em>Hydration brand</em></div><div class="vert">Multi-shot summer campaign</div></div>
+<!-- ══ SLIDE 12: SNACKABLES ══ -->
+<div class="slide bg-ink" id="s11">
+  <div class="stag">11 · Snackables Ad Creative</div>
+  <div class="two-col">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--ink);font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;padding:5px 12px;margin-bottom:20px;font-weight:700;">POWERED BY MUUS</div>
+      <div class="hed">High-Vibe<br><em>Ad Creative.</em></div>
+      <div class="bod">Snackables is MUUS's short form content arm — fast, premium ad creative that prevents fatigue at scale. Fixed deliverable packages, plug-and-play for CPG. The same model that worked for Debiotics across 3-day shoots every 2 to 3 months.</div>
     </div>
-    <div class="cpg-side">
-      <h3>What this means for <em>Gorilla Mind</em></h3>
-      <ul>
-        <li>We know how to shoot supplements that pop on shelf at Vitamin Shoppe / GNC / Walmart</li>
-        <li>We've built variant-tested paid creative for Meta + TikTok, the same channels driving your funnel</li>
-        <li>We've cast and managed creator content for wellness — including Rx categories with FTC compliance baked in</li>
-        <li>We understand the Gorilla Mind voice: bold formulations, transparent labels, results-first marketing</li>
-        <li>Our team can stand up a sustained content engine — not just one-off shoots</li>
-      </ul>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="pkg">
+        <div class="pkg-name">Starter Sprint</div>
+        <div class="pkg-price">From $4,000</div>
+        <div class="pkg-desc">15 short form video assets, 3 formats each. Cinematic on-stick moments and lifestyle environments. Full post included. Delivered in 2 weeks.</div>
+      </div>
+      <div class="pkg">
+        <div class="pkg-name">Performance Pack</div>
+        <div class="pkg-price">From $8,000</div>
+        <div class="pkg-desc">30 assets, mix of cinematic, comedic, and static. Multiple creators. A/B variants for paid testing. Weekly delivery cadence.</div>
+      </div>
+      <div class="pkg">
+        <div class="pkg-name">Monthly Retainer</div>
+        <div class="pkg-price">Custom — scoped to spend</div>
+        <div class="pkg-desc">Ongoing pipeline built to your ad spend level. 50+ assets per month, weekly drops, performance loop built into every brief.</div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 08 — WHAT WE'D BUILD FOR YOU ============================== -->
-<section class="slide" id="proposal">
-  <div class="slide-num">[ 11 ] <b>WHAT WE'D BUILD FOR YOU</b></div>
-  <div class="slide-eyebrow">The Build</div>
-  <h2 class="heading">A clear plan. <em>Built for Gorilla Mind.</em></h2>
-  <p class="lede">Based on what Gorilla Mind is shipping right now — Gorilla Mode, energy drinks, retail expansion, ambassador program — here's where MUUS could move the needle. <strong>Pick one lane or all four.</strong></p>
-  <div class="proposal-grid">
-    <div class="proposal-cell">
-      <div class="pnum">PRIORITY 01</div>
-      <h3>Hero brand films for <em>retail launches</em></h3>
-      <p>Premium 30s / 60s spots for Gorilla Mode, Sigma, energy drink launches — usable as TVC, retail in-store loops, YouTube pre-roll, and hero placements on GorillaMind.com. Director-led, full crew, finished color and sound.</p>
-      <div class="deliverables"><span>Brand film</span><span>TVC</span><span>Retail loops</span><span>Pre-roll</span></div>
+<!-- ══ SLIDE 13: NEXT STEPS ══ -->
+<div class="slide bg-cream" id="s12">
+  <div class="stag stag-dark">12 · Next Steps</div>
+  <div class="hed hed-dark" style="font-size:clamp(36px,4.5vw,66px);">What happens <em>next.</em></div>
+  <div class="next-grid">
+    <div class="next-card">
+      <div class="next-n">01</div>
+      <div class="next-t">7-Eleven Constraints</div>
+      <div class="next-d">Share store access windows, legal guidelines, and approved budget range. MUUS locks Option A or B within 48 hours.</div>
+      <div class="next-own">OWNER — JACOB / MUSE TEAM</div>
     </div>
-    <div class="proposal-cell">
-      <div class="pnum">PRIORITY 02</div>
-      <h3>Performance creative <em>at velocity</em></h3>
-      <p>Monthly drops of platform-native paid creative for Meta and TikTok — hooks, variants, and full-funnel content engineered around your existing $16M+ paid spend. Built to test and scale.</p>
-      <div class="deliverables"><span>Meta creative</span><span>TikTok</span><span>Variants</span><span>A/B testing</span></div>
+    <div class="next-card">
+      <div class="next-n">02</div>
+      <div class="next-t">Confirm Late June Dates</div>
+      <div class="next-d">Lock LA shoot locations and dates. MUUS holds B-team. If activation expands to athletes MUUS adjusts crew accordingly.</div>
+      <div class="next-own">OWNER — JACOB / MUSE TEAM</div>
     </div>
-    <div class="proposal-cell">
-      <div class="pnum">PRIORITY 03</div>
-      <h3>Creator engine for the <em>ambassador program</em></h3>
-      <p>Casting, briefing, and content ops for the Gorilla Mind ambassador program. Whitelisted creator content for paid amplification. FTC-compliant, talent-managed, scalable.</p>
-      <div class="deliverables"><span>Casting</span><span>Briefing</span><span>Whitelisting</span><span>Talent ops</span></div>
+    <div class="next-card">
+      <div class="next-n">03</div>
+      <div class="next-t">Share Snackables Performance</div>
+      <div class="next-d">Send current ad asset links and top performing hooks. MUUS builds the creator brief aligned to what's already working.</div>
+      <div class="next-own">OWNER — JACOB / MUSE TEAM</div>
     </div>
-    <div class="proposal-cell">
-      <div class="pnum">PRIORITY 04</div>
-      <h3>3D + product visualization for <em>retail / DTC</em></h3>
-      <p>Hero product renders, packaging visualizations, supplement particle hero shots. Reusable across web, paid, retail POS, and out-of-home.</p>
-      <div class="deliverables"><span>3D renders</span><span>Packaging</span><span>Hero shots</span><span>POS</span></div>
+    <div class="next-card">
+      <div class="next-n">04</div>
+      <div class="next-t">Scope Alignment Call</div>
+      <div class="next-d">Lock creative direction, budget, and timelines across all three programs. Move fast.</div>
+      <div class="next-own">OWNER — MUUS + MUSE TOGETHER</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============================== SLIDE 09 — ENGAGEMENT MODELS ============================== -->
-<section class="slide" id="engagement">
-  <div class="slide-num">[ 12 ] <b>HOW WE WORK</b></div>
-  <div class="slide-eyebrow">Engagement Models</div>
-  <h2 class="heading">Three ways<br>to <em>plug in.</em></h2>
-  <p class="lede">From a single hero campaign to a full-stack creative partnership. All three start with a 30-minute scoping call. <strong>Engagements start at <em>$10K+</em></strong> and scope from there based on volume, velocity, and crew.</p>
-  <div class="eng-grid">
-    <div class="eng-cell">
-      <span class="eng-tag-line">Tier 01</span>
-      <h3>Project</h3>
-      <p class="pi">A single hero campaign — brand film, launch spot, or one-off creative push. Ideal for a Gorilla Mode hero film, Sigma launch spot, or a single retail activation.</p>
-      <ul>
-        <li>Concepting + creative direction</li>
-        <li>Full production day(s)</li>
-        <li>Edit, color, sound, motion</li>
-        <li>Multi-format delivery</li>
-        <li>Two revision rounds</li>
-      </ul>
-      <div class="eng-foot">Scope-priced · One-off</div>
-    </div>
-    <div class="eng-cell featured">
-      <span class="eng-tag">Most Aligned</span>
-      <h3>Retainer</h3>
-      <p class="pi">Sustained creative engine. Monthly content drops, performance creative cadence, ongoing creator program management. Scales from 50 to 500+ assets per quarter.</p>
-      <ul>
-        <li>Monthly performance creative drops</li>
-        <li>Ongoing creator casting + ops</li>
-        <li>Quarterly hero shoots</li>
-        <li>Always-on edit team</li>
-        <li>Strategy + performance review</li>
-      </ul>
-      <div class="eng-foot">Monthly · Volume-scaled</div>
-    </div>
-    <div class="eng-cell">
-      <span class="eng-tag-line">Tier 03</span>
-      <h3>Full Stack</h3>
-      <p class="pi">Embedded creative team. Full-stack production, paid media buying, brand strategy, retail and DTC creative ops. We become an arm of your marketing org.</p>
-      <ul>
-        <li>Everything in Retainer</li>
-        <li>Paid media buying + management</li>
-        <li>Brand strategy + identity work</li>
-        <li>Multi-city crews on standby</li>
-        <li>Custom SLA + dedicated team</li>
-      </ul>
-      <div class="eng-foot">Embedded · Custom SLA</div>
-    </div>
-  </div>
-  <div class="eng-floor">
-    <span class="floor-line"></span>
-    <span class="floor-text"><em>Minimum engagement</em> · $10K+ · scoped to volume, velocity, and crew</span>
-    <span class="floor-line"></span>
-  </div>
-</section>
-
-<!-- ============================== SLIDE 10 — CTA ============================== -->
-<section class="slide" id="cta">
-  <div class="slide-num">[ 13 ] <b>NEXT STEP</b></div>
-  <div class="stack">
-    <div class="slide-eyebrow" style="justify-content:center;align-self:center">Let's Build</div>
-    <h2 class="heading">Let's make<br>Gorilla Mind <em>look as good</em><br>as it performs.</h2>
-    <p class="lede">A 30-minute scoping call is enough to map the first 90 days. <em>No slides, no pitch deck, no agency theatre.</em> Just a real conversation about what you're shipping and how we can help.</p>
-    <div class="cta-row">
-      <button class="cta-btn acid" data-open-pm>START THE CONVERSATION →</button>
-      <a class="cta-btn" href="mailto:contact@muusmedia.com?subject=Gorilla%20Mind%20%C3%97%20MUUS">contact@muusmedia.com</a>
-    </div>
-    <div class="cta-meta">
-      <span class="line"></span>
-      <span>MUUS MEDIA · AUSTIN · LA · NY · MIAMI</span>
-      <span class="line"></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== PROJECT INQUIRY MODAL ============================== -->
-<div class="modal" id="projectModal" aria-hidden="true">
-  <div class="modal-panel">
-    <button class="modal-close" id="pmClose" aria-label="Close">×</button>
-    <div id="pmBody">
-      <h2>Start the <em>conversation</em>.</h2>
-      <p class="sub">Tell us about the project. We'll respond within one business day with a fit check, scope, and timeline options.</p>
-      <form id="pmForm" novalidate action="https://formspree.io/f/xbdwroqn" method="POST">
-        <div class="field-row">
-          <div class="field"><label>First name</label><input type="text" name="firstName" required></div>
-          <div class="field"><label>Last name</label><input type="text" name="lastName" required></div>
-        </div>
-        <div class="field"><label>Work email</label><input type="email" name="email" required></div>
-        <div class="field"><label>Company / Brand</label><input type="text" name="company" value="Gorilla Mind" required></div>
-        <div class="field-row">
-          <div class="field">
-            <label>Engagement model</label>
-            <select name="model">
-              <option value="">Select model</option>
-              <option>Project (one-off campaign)</option>
-              <option>Retainer (monthly volume)</option>
-              <option>Full Stack (embedded team)</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Priority focus</label>
-            <select name="priority">
-              <option value="">Select priority</option>
-              <option>Hero brand film</option>
-              <option>Performance creative</option>
-              <option>Creator / ambassador program</option>
-              <option>3D + product visualization</option>
-              <option>Multiple / All</option>
-            </select>
-          </div>
-        </div>
-        <div class="field"><label>Tell us about the project</label><textarea name="brief" rows="4" placeholder="Brief context — what you're launching, what success looks like, where the gap is..." required></textarea></div>
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="_subject" value="New Inquiry — Gorilla Mind × MUUS Capabilities Deck">
-        <input type="hidden" name="source" value="muus-x-gorillamind.html — Custom Pitch Deck">
-        <button type="submit" class="submit">Submit Inquiry →</button>
-      </form>
-    </div>
-  </div>
+<!-- ══ CLOSING ══ -->
+<div class="slide slide-close" id="s13">
+  <div class="stag" style="justify-content:center;">[ MUUS / END ]</div>
+  <div class="close-hed">LET'S<br><em>BUILD.</em></div>
+  <div class="close-line"></div>
+  <div class="close-contact"><a href="mailto:jacob@muusmedia.com">jacob@muusmedia.com</a> · 480-635-6983</div>
+  <div class="close-contact"><a href="https://start.muusmedia.com" target="_blank">start.muusmedia.com</a> · Austin, TX · Los Angeles, CA</div>
 </div>
 
 <script>
-// ===== Cursor =====
-(function(){
-  const dot=document.getElementById('cdot');
-  const ring=document.getElementById('cring');
-  if(!dot||!ring)return;
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-  function tick(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick)}tick();
-  document.querySelectorAll('a, button, [data-open-pm]').forEach(el=>{
-    el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
-    el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
-  });
-})();
-
-// ===== Slide rail active state =====
-(function(){
-  const dots=[...document.querySelectorAll('.rail .dot')];
-  const sections=dots.map(d=>document.getElementById(d.dataset.target));
-  function update(){
-    const y=window.scrollY+window.innerHeight*.4;
-    let idx=0;
-    sections.forEach((s,i)=>{if(s&&s.offsetTop<=y)idx=i});
-    dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
-  }
-  window.addEventListener('scroll',update,{passive:true});
-  update();
-})();
-
-// ===== Theme toggle =====
-(function(){
-  const h=document.documentElement;
-  const btn=document.getElementById('themeToggle');
-  if(!btn)return;
-  btn.addEventListener('click',()=>{
-    const cur=h.getAttribute('data-theme');
-    h.setAttribute('data-theme',cur==='light'?'':'light');
-  });
-})();
-
-// ===== Home link router (production rewrite) =====
-(function(){
-  const host=location.hostname;
-  const prod=host&&host!=='localhost'&&host!=='127.0.0.1'&&location.protocol!=='file:';
-  if(!prod)return;
-  document.querySelectorAll('[data-home-link]').forEach(a=>a.setAttribute('href','/'));
-})();
-
-// ===== Project Inquiry Modal =====
-(function(){
-  const modal=document.getElementById('projectModal');
-  const body=document.getElementById('pmBody');
-  const form=document.getElementById('pmForm');
-  const close=document.getElementById('pmClose');
-  if(!modal||!form)return;
-  function open(){modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';modal.scrollTop=0}
-  function shut(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''}
-  document.querySelectorAll('[data-open-pm]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();open()}));
-  close.addEventListener('click',shut);
-  modal.addEventListener('click',e=>{if(e.target===modal)shut()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))shut()});
-  form.addEventListener('submit',async function(e){
-    e.preventDefault();
-    const btn=form.querySelector('button[type="submit"]');
-    const orig=btn.textContent;
-    btn.textContent='Sending…';btn.disabled=true;
-    try{
-      const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-      if(r.ok){
-        body.innerHTML=`<div class="success"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="28"/><path d="M18 30 L26 38 L42 22"/></svg><h3>Inquiry received.</h3><p>We'll be in touch within one business day with next steps.</p></div>`;
-      }else{
-        const d=await r.json().catch(()=>({}));
-        const msg=(d.errors&&d.errors[0]&&d.errors[0].message)||'Submission failed. Please try again or email contact@muusmedia.com directly.';
-        let err=form.querySelector('.cf-err');
-        if(!err){err=document.createElement('p');err.className='cf-err';err.style.cssText='margin-top:12px;color:#d44;font-size:12px;font-family:JetBrains Mono';btn.insertAdjacentElement('afterend',err)}
-        err.textContent=msg;btn.textContent=orig;btn.disabled=false;
-      }
-    }catch(err){
-      let e2=form.querySelector('.cf-err');
-      if(!e2){e2=document.createElement('p');e2.className='cf-err';e2.style.cssText='margin-top:12px;color:#d44;font-size:12px;font-family:JetBrains Mono';btn.insertAdjacentElement('afterend',e2)}
-      e2.textContent='Network error. Please email contact@muusmedia.com directly.';
-      btn.textContent=orig;btn.disabled=false;
+const slides = [...document.querySelectorAll('.slide, .slide-title, .slide-divider, .slide-close')];
+const dc = document.getElementById('dots');
+slides.forEach((_,i)=>{
+  const d = document.createElement('div');
+  d.className='dot'+(i===0?' on':'');
+  d.onclick=()=>slides[i].scrollIntoView({behavior:'smooth'});
+  dc.appendChild(d);
+});
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i = slides.indexOf(e.target);
+      document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('on',j===i));
     }
   });
-})();
+},{threshold:0.5});
+slides.forEach(s=>obs.observe(s));
 </script>
 </body>
 </html>
